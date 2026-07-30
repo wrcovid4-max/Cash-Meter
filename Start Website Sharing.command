@@ -2,12 +2,12 @@
 # Double-click this file to put the Cash Memer website online.
 # It starts a local web server + a free Cloudflare tunnel and prints the public link.
 #
-# The site lives in the "docs" folder next to this file.
+# The site lives in the "website" folder next to this file.
 # For the public link you need cloudflared. Either drop the binary beside this
 # file, or install it once with:  brew install cloudflared
 cd "$(dirname "$0")"
 
-SITE_DIR="docs"
+SITE_DIR="website"
 PORT=8901
 
 if [ ! -d "$SITE_DIR" ]; then

@@ -1,71 +1,97 @@
 # Cash Memer
 
-Professional Receipt Organizer — scan a paper receipt, let Gemini fill in the form,
-add products by barcode, sign on screen, and print or share a two-page cash memo.
-Live exchange rates from ExchangeRate-API, Google Sign-In with Firebase sync, offline
-backups and app lock. English and Urdu, on iOS, iPadOS, macOS, watchOS, Android and
-Wear OS.
+Smart receipts, exchange rates and POS in your pocket — for iPhone, iPad, Mac,
+Apple Watch, Android, Wear OS, and the web.
 
 *Make cash memos fun.*
 
-## This repository
+This repository is the backup of the **cashmemer.com.pk** website. The original
+copy was lost; what's here was restored from the recovered files.
+
+## Layout
 
 | Path | What it is |
 | --- | --- |
-| `docs/` | The Cash Memer website — static HTML, CSS and JS, no build step |
-| `docs/screenshots/` | Screenshots used on the site |
-| `Start Website Sharing.command` | Double-click on a Mac to serve `docs/` and get a public link |
+| `website/` | The whole site — pages, templates, build script |
+| `Start Website Sharing.command` | Double-click on a Mac to serve `website/` and get a public link |
 
-The Android Studio project lives alongside this once it's added.
+## Running the site
 
-## The website
+The built `.html` files are **completely self-contained** — CSS and JavaScript are
+inlined and every image is embedded as a data URI. No build step, no `assets/`
+folder, no internet connection needed. Open `website/index.html` in a browser and
+it works.
 
-Plain static files. Nothing to install, nothing to compile.
+To serve it properly:
 
 ```sh
-python3 -m http.server 8901 --directory docs
+python3 -m http.server 8901 --directory website
 # then open http://localhost:8901
 ```
 
-Or double-click **Start Website Sharing.command** on a Mac. It serves `docs/` on port
-8901 and, if `cloudflared` is available, prints a public `trycloudflare.com` link you
-can share with anyone.
+Or double-click **Start Website Sharing.command**. It serves `website/` on port
+8901 and, if `cloudflared` is installed, prints a public `trycloudflare.com` link
+you can share with anyone.
 
-### Publishing with GitHub Pages
+## What's here
 
-Settings → Pages → Source: **Deploy from a branch**, branch `main`, folder `/docs`.
+**Pages that load and work:**
 
-### How it's put together
+`index.html` · `wearables.html` · `driving.html` · `languages.html` ·
+`news.html` · `support.html` · `download.html` · `web-app.html` ·
+`privacy.html` · `trademarks.html` ·
+`news-cash-memer-launches-on-the-web.html` ·
+`news-cash-memer-trademark-portfolio.html`
 
-| File | Role |
+Plus `sitemap.xml` and `rss.xml`.
+
+**Build system:** `build.py`, `styles.css`, `article.js`, `search.js`,
+`news.json`, `news.sample.json`, and the templates
+`index` · `mobile` · `languages` · `driving` · `privacy` · `trademarks` ·
+`web-app` · `news`.
+
+## Still missing
+
+These were part of the site but weren't among the recovered files. The links to
+them in the navigation currently 404:
+
+| Missing | Notes |
 | --- | --- |
-| `docs/index.html` | The whole page. English copy lives here, in the markup |
-| `docs/styles.css` | Light and dark themes as CSS custom properties, plus RTL support |
-| `docs/app.js` | Theme switch, language switch, nav, screenshot tabs, converter demo |
-| `docs/i18n.js` | Urdu strings, keyed to the `data-i18n` attributes in the HTML |
-| `docs/icon.svg` | App icon, used as the favicon and in the header |
-| `docs/privacy.html` | Privacy policy |
+| `mobile.html` | Template survived — only the built page is gone |
+| `spatial.html` | visionOS / Android XR page. Template gone too |
+| `terms.html` | Template gone too |
+| `news-cash-memer-launches-on-google-play.html` | Listed in `sitemap.xml` |
+| `assets/` | ~50 source images. Only needed to re-run `build.py` |
+| `script.js`, `news.js`, `support.js` | Inlined in the built pages; needed to re-run `build.py` |
+| `updates.json` | Needed to re-run `build.py` |
 
-**Theme** follows System / Light / Dark, mirroring the app's Appearance setting, and
-is remembered in `localStorage`. **Language** switches the entire page between English
-and Urdu, flipping the document to RTL.
+If any of these turn up, drop them in `website/` and commit. The build script
+lists everything it expects at the top of `build.py`.
 
-### Editing content
+## Rebuilding
 
-- **Copy** — edit the English directly in `index.html`, then update the matching key in
-  `i18n.js`. Every translatable element carries a `data-i18n` attribute; the English text
-  is read from the DOM on load, so the two must stay in step.
-- **News** — add an `<li class="news__item">` at the top of the `<ol class="news">` list
-  in the news section, and its Urdu keys in `i18n.js`.
-- **Screenshots** — drop the image into `docs/screenshots/` and add a `<figure>` to the
-  relevant tab panel in the screens section.
-- **Store links** — when the App Store and Google Play listings go live, replace the two
-  buttons in the `#get` section.
+`build.py` regenerates every page from the templates, inlining CSS/JS and
+embedding images. It needs the `assets/` folder and the missing scripts above, so
+it won't run until those are recovered — the built pages in this repo are the
+canonical copy for now.
+
+```sh
+cd website && python3 build.py
+```
+
+## Back this up
+
+This repository is the only copy. Anything not committed and pushed does not
+exist anywhere else.
+
+```sh
+git add -A && git commit -m "what changed" && git push
+```
 
 ## Credits
 
-Exchange rates are provided by ExchangeRate-API; liability for any incorrect information
-lies with them. All trademarks, logos and names remain the property of their respective
-owners.
+Exchange rates are provided by ExchangeRate-API; liability for any incorrect
+information lies with them. All trademarks, logos and names remain the property
+of their respective owners.
 
 Support: [support@cashmemer.com](mailto:support@cashmemer.com) · @cashmemerapp

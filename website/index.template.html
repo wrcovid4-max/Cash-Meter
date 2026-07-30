@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Cash Memer — Smart Receipts, Rates &amp; POS in Your Pocket</title>
+<meta name="description" content="Cash Memer is the all-in-one receipt & cash memo generator with an AI receipt scanner, barcode scanning, live currency rates, a sales dashboard, cloud sync and biometric security. Custom, native apps for iPhone, iPad, Mac, Apple Watch, Wear OS and Android." />
+<meta name="theme-color" content="#0a5fe0" />
+
+<!-- Social sharing -->
+<meta property="og:title" content="Cash Memer — Smart Receipts, Rates & POS" />
+<meta property="og:description" content="AI receipt scanner, barcode scanning, live currency rates, sales dashboard, cloud sync & biometric security. Native apps for iPhone · iPad · Mac · Apple Watch · Wear OS · Android — visionOS & Android XR coming soon." />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="assets/logo.jpg" />
+
+<link rel="icon" type="image/jpeg" href="assets/logo.jpg" />
+<link rel="apple-touch-icon" href="assets/logo.jpg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#top" class="brand">
+      <img src="assets/logo.jpg" alt="Cash Memer logo" class="brand-logo" />
+      <span class="brand-name">Cash Memer</span>
+    </a>
+    <nav class="nav-links">
+      <a href="#features">Features</a>
+      <a href="#showcase">Screens</a>
+      <a href="#platforms">Platforms</a>
+      <a href="languages.html">Languages</a>
+      <a href="#download">Download</a>
+    </nav>
+    <a href="#download" class="btn btn-sm btn-primary nav-cta">Get the App</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="top">
+  <div class="hero-bg"></div>
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <span class="pill"><span class="pill-dot"></span> iPhone · iPad · Mac · Apple Watch · Wear OS · Android — visionOS &amp; Android XR coming soon</span>
+      <h1>Every receipt.<br />Every rate.<br /><span class="grad-text">One tap away.</span></h1>
+      <p class="lead">
+        Cash Memer is a full point-of-sale in your pocket — and on your wrist and desk. Generate
+        polished cash memos, scan receipts with AI, track live currency rates and watch your sales grow,
+        with a purpose-built app for every device you own.
+      </p>
+      <div class="hero-actions">
+        <a href="https://ai.studio/apps/20cc2282-7b63-42e4-bc61-fbcfc7b45e8c?fullscreenApplet=true" target="_blank" rel="noopener" class="store-btn">
+          <svg viewBox="0 0 485 512" width="24" height="24" aria-hidden="true"><path fill="#00c3ff" d="M40 30 280 256 40 482Z"/><path fill="#00e676" d="M40 30 366 191 280 256Z"/><path fill="#ffce00" d="M280 256 366 191 445 256 366 321Z"/><path fill="#ff3d47" d="M40 482 366 321 280 256Z"/></svg>
+          <span><small>Get it on</small><strong>Google Play / Android</strong></span>
+        </a>
+        <a href="#download" class="store-btn store-btn-dark">
+          <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path fill="currentColor" d="M16.365 1.43c0 1.14-.42 2.2-1.12 2.98-.83.93-2.18 1.65-3.3 1.56-.14-1.1.42-2.28 1.06-3 .74-.83 2.05-1.46 3.36-1.54zM20.5 17.2c-.55 1.27-.82 1.83-1.53 2.95-1 1.57-2.4 3.53-4.14 3.54-1.55.02-1.95-1-4.05-.99-2.1.01-2.54 1.01-4.1.99-1.74-.02-3.07-1.78-4.06-3.35C-.24 16.05-.5 10.55 1.5 7.83 2.7 6.16 4.6 5.2 6.4 5.2c1.83 0 2.98 1 4.5 1 1.47 0 2.36-1 4.48-1 1.6 0 3.3.87 4.5 2.38-3.96 2.17-3.32 7.83.62 9.62z"/></svg>
+          <span><small>Coming soon to</small><strong>App Store</strong></span>
+        </a>
+      </div>
+      <div class="hero-trust">
+        <div class="stars">★★★★★</div>
+        <span>Loved by shopkeepers, freelancers &amp; small businesses</span>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <img src="assets/phone-scanner.png" alt="Cash Memer scanner screen" class="hero-phone hero-phone-back" />
+      <img src="assets/phone-rates.png" alt="Cash Memer live rates screen" class="hero-phone hero-phone-front" />
+      <div class="floating-badge fb-1">
+        <span class="fb-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3v18l2-1.4L10 21l2-1.4L14 21l2-1.4L18 21V3l-2 1.4L14 3l-2 1.4L10 3 8 4.4z"/><path d="M9 8h6M9 12h6M9 16h3"/></svg></span>
+        <div><strong>Cash memo ready</strong><small>Grand total · Rs 4,850</small></div>
+      </div>
+      <div class="floating-badge fb-2">
+        <span class="fb-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h13l-3-3M20 16H7l3 3"/></svg></span>
+        <div><strong>USD → PKR</strong><small>277.90 · live</small></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- logo strip -->
+  <div class="logostrip">
+    <span>Works with</span>
+    <div class="logostrip-items">
+      <span class="chip"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17 12.6c0-2.2 1.8-3.2 1.9-3.3-1-1.5-2.6-1.7-3.2-1.8-1.4-.1-2.7.8-3.3.8s-1.7-.8-2.8-.8c-1.5 0-2.8.8-3.5 2.1-1.5 2.6-.4 6.4 1.1 8.5.7 1 1.6 2.2 2.7 2.1 1-.04 1.5-.7 2.8-.7s1.7.7 2.8.7c1.2 0 1.9-1 2.6-2.1.8-1.2 1.2-2.3 1.2-2.4-.03 0-2.3-.9-2.3-3.5zM14.8 5.9c.6-.7 1-1.7.9-2.7-.9 0-1.9.6-2.5 1.3-.5.6-1 1.6-.9 2.6 1 .1 1.9-.5 2.5-1.2z"/></svg> Apple Pay</span>
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="5.5" width="19" height="13" rx="2.5"/><path d="M2.5 9.5h19"/><path d="M15 14h4"/></svg> Apple Wallet</span>
+      <span class="chip"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M21.6 12.2c0-.6-.05-1.2-.16-1.8H12v3.4h5.4a4.6 4.6 0 0 1-2 3v2.5h3.2c1.9-1.7 3-4.3 3-7.1z"/><path fill="#34A853" d="M12 22c2.7 0 4.9-.9 6.6-2.4l-3.2-2.5c-.9.6-2 .9-3.4.9-2.6 0-4.8-1.7-5.6-4.1H3.1v2.6A10 10 0 0 0 12 22z"/><path fill="#FBBC05" d="M6.4 13.9a6 6 0 0 1 0-3.8V7.5H3.1a10 10 0 0 0 0 9z"/><path fill="#EA4335" d="M12 5.9c1.5 0 2.8.5 3.8 1.5l2.8-2.8A10 10 0 0 0 3.1 7.5l3.3 2.6C7.2 7.6 9.4 5.9 12 5.9z"/></svg> Google Sign-in</span>
+      <span class="chip"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l1.9 5.2c.3.9 1 1.6 1.9 1.9L21 11l-5.2 1.9c-.9.3-1.6 1-1.9 1.9L12 20l-1.9-5.2c-.3-.9-1-1.6-1.9-1.9L3 11l5.2-1.9c.9-.3 1.6-1 1.9-1.9L12 2z"/><path d="M18.5 14.5l.7 2 2 .7-2 .7-.7 2-.7-2-2-.7 2-.7z"/></svg> Gemini AI</span>
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h13l-3-3M20 16H7l3 3"/></svg> ExchangeRate-API</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FEATURE HIGHLIGHTS ===== -->
+<section class="features" id="features">
+  <div class="section-head">
+    <span class="eyebrow">Everything you need</span>
+    <h2>A whole cash counter in one app</h2>
+    <p>From the first sale to the monthly report, Cash Memer handles it — no printer, no paperwork, no fuss.</p>
+  </div>
+
+  <div class="feature-grid">
+    <article class="feature-card fc-lg">
+      <div class="fc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3v18l2-1.4L10 21l2-1.4L14 21l2-1.4L18 21V3l-2 1.4L14 3l-2 1.4L10 3 8 4.4z"/><path d="M9 8h6M9 12h6M9 16h3"/></svg></div>
+      <h3>Beautiful cash memos</h3>
+      <p>Build professional receipts with items, quantities, discounts and tax — and watch them render live as you type. Add your logo and digital signature for a branded touch.</p>
+    </article>
+
+    <article class="feature-card">
+      <div class="fc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 3l1.7 4.3L17 9l-4.3 1.7L11 15l-1.7-4.3L5 9l4.3-1.7z"/><path d="M18 13.5l.8 2.2 2.2.8-2.2.8L18 19.5l-.8-2.2-2.2-.8 2.2-.8z"/></svg></div>
+      <h3>AI Receipt Scanner</h3>
+      <p>Snap a photo or pick from your gallery — Gemini-powered OCR reads the items and totals for you in seconds.</p>
+    </article>
+
+    <article class="feature-card">
+      <div class="fc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8V6a2 2 0 0 1 2-2h2M17 4h2a2 2 0 0 1 2 2v2M21 16v2a2 2 0 0 1-2 2h-2M7 20H5a2 2 0 0 1-2-2v-2"/><path d="M7 8v8M10 8v8M13.5 8v8M17 8v8"/></svg></div>
+      <h3>Barcode, NFC &amp; scanners</h3>
+      <p>Ring up products fast with the built-in barcode scanner, NFC tags, or an external hardware scanner — and write product IDs onto blank NFC tags for physical labeling.</p>
+    </article>
+
+    <article class="feature-card">
+      <div class="fc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h13l-3-3M20 16H7l3 3"/></svg></div>
+      <h3>Live currency rates</h3>
+      <p>Real-time exchange rates for 150+ currencies via ExchangeRate-API. Set custom currencies and convert on the fly.</p>
+    </article>
+
+    <article class="feature-card">
+      <div class="fc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V4M4 20h16"/><rect x="7" y="12" width="3" height="5" rx=".5"/><rect x="12" y="8" width="3" height="9" rx=".5"/><rect x="17" y="5" width="3" height="12" rx=".5"/></svg></div>
+      <h3>Sales dashboard</h3>
+      <p>See today's sales, revenue, total products and scans at a glance — plus a built-in weather widget for your store.</p>
+    </article>
+
+    <article class="feature-card">
+      <div class="fc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 19a4 4 0 0 1-.4-8A5.5 5.5 0 0 1 17.5 10.5 3.75 3.75 0 0 1 17 19z"/><path d="M12 16v-5M9.7 13.2 12 10.8l2.3 2.4"/></svg></div>
+      <h3>Cloud sync &amp; backup</h3>
+      <p>Sign in with Google to sync receipts across every device. Export, back up and restore your data anytime.</p>
+    </article>
+
+    <article class="feature-card">
+      <div class="fc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="10.5" width="14" height="10" rx="2.5"/><path d="M8 10.5V8a4 4 0 0 1 8 0v2.5"/><path d="M12 14.5v2"/></svg></div>
+      <h3>Locked down tight</h3>
+      <p>Protect the app with Face ID, Touch ID or a custom passcode. Your books stay yours.</p>
+    </article>
+
+    <article class="feature-card">
+      <div class="fc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M5.6 5.6l12.8 12.8"/></svg></div>
+      <h3>No ads, ever</h3>
+      <p>Your counter is a workspace, not a billboard. Cash Memer is completely ad-free — nothing between you and the sale.</p>
+    </article>
+
+    <article class="feature-card">
+      <div class="fc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 0 1-15 6.7L3 16M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5M3 21v-5h5"/></svg></div>
+      <h3>Regularly updated</h3>
+      <p>Frequent free updates bring new features, currencies and refinements to every platform.</p>
+    </article>
+
+    <article class="feature-card fc-lg fc-accent">
+      <div class="fc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.6 2.4 2.6 15.6 0 18M12 3c-2.6 2.4-2.6 15.6 0 18"/></svg></div>
+      <h3>Bilingual &amp; themeable</h3>
+      <p>Switch instantly between English and Urdu — اردو — with full right-to-left support, and choose a Light, Dark or System theme. The whole app adapts to feel right at home.</p>
+    </article>
+
+    <article class="feature-card">
+      <div class="fc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 19c.6-3.4 3-5.2 5.5-5.2s4.9 1.8 5.5 5.2"/><path d="M18 8v5M15.5 10.5h5"/></svg></div>
+      <h3>Customer directory</h3>
+      <p>Save every customer's name, phone, email and address once, then attach them to a memo in a single tap.</p>
+    </article>
+
+    <article class="feature-card">
+      <div class="fc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7l9-4 9 4-9 4-9-4z"/><path d="M3 7v10l9 4 9-4V7"/><path d="M12 11v10"/></svg></div>
+      <h3>Built-in product catalog</h3>
+      <p>Keep a searchable catalog with barcode, SKU, category, stock and pricing — or use the quick price list for on-the-fly items.</p>
+    </article>
+
+    <article class="feature-card">
+      <div class="fc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v10H9l-4 4V5z"/><path d="M12 8.5l.7 1.8 1.8.7-1.8.7-.7 1.8-.7-1.8-1.8-.7 1.8-.7z"/></svg></div>
+      <h3>Weekly AI insights</h3>
+      <p>A plain-language weekly summary from Gemini, plus the numbers that matter — top item, best customer, total spend.</p>
+    </article>
+
+    <article class="feature-card">
+      <div class="fc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5"/><circle cx="11" cy="15" r="2.4"/><path d="M12.8 16.8L15 19"/></svg></div>
+      <h3>Annotate &amp; search every memo</h3>
+      <p>Every receipt opens as a zoomable PDF you can search, mark up with notes and checkmarks, and share in a tap.</p>
+    </article>
+  </div>
+</section>
+
+<!-- ===== SMART & CONNECTED ===== -->
+<section class="smart" id="smart">
+  <div class="smart-inner">
+    <div class="section-head">
+      <span class="eyebrow">Smart &amp; connected</span>
+      <h2>Woven right into your device</h2>
+      <p>Cash Memer doesn't just sit on your home screen — it plugs straight into the system you already use every day.</p>
+    </div>
+    <div class="trio-grid">
+
+      <article class="trio-card">
+        <span class="trio-badge tb-live"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-11"/></svg> Built in</span>
+        <div class="fc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10v4M8 6.5v11M12 3v18M16 6.5v11M20 10v4"/></svg></div>
+        <h3>Just say the word</h3>
+        <p>Cash Memer is wired deep into <strong>App Intents</strong>, so its actions belong to the whole system. Ask <strong>Siri</strong> to "start a new cash memo," surface today's rates straight from <strong>Spotlight</strong>, or drop any action into a Shortcut or your Home Screen. The app comes to you — no tapping, no digging through menus.</p>
+      </article>
+
+      <article class="trio-card">
+        <span class="trio-badge tb-live"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-11"/></svg> Available now</span>
+        <div class="fc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.5l1.9 5.6c.3.8.9 1.4 1.7 1.7l5.6 1.9-5.6 1.9c-.8.3-1.4.9-1.7 1.7L12 21.5l-1.9-5.6c-.3-.8-.9-1.4-1.7-1.7L2.8 12.3l5.6-1.9c.8-.3 1.4-.9 1.7-1.7z"/><path d="M19 3v3.5M20.75 4.75h-3.5"/></svg></div>
+        <h3>Powered by Apple Intelligence</h3>
+        <p>Cash Memer taps straight into <strong>Apple Intelligence</strong> to work smarter for you. Summarise a day's takings, polish receipt notes with Writing Tools and get context-aware suggestions — all handled privately, right on your device. Your books, only sharper.</p>
+      </article>
+
+      <article class="trio-card">
+        <span class="trio-badge tb-live"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-11"/></svg> Available now</span>
+        <div class="fc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h7M8 3v2M9.5 5c0 3.5-2.2 6.5-5 8M6 9c0 2.2 2.6 4 5.5 4.5"/><path d="M12.5 19l3.5-8 3.5 8M13.8 16.2h4.4"/></svg></div>
+        <h3>Speaks your customer's language</h3>
+        <p>Fully <strong>localised</strong> — set your device to any language and Cash Memer follows. Buttons, receipts, number formats and even right-to-left layout all adapt properly, never machine-translated. English and اردو ship today, with more on the way. Pick a language, and it just works.</p>
+        <a href="languages.html" class="trio-link">Explore language support <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" width="15" height="15"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== ALT FEATURE: NEW RECEIPT ===== -->
+<section class="split">
+  <div class="split-inner">
+    <div class="split-copy">
+      <span class="eyebrow">Create a receipt</span>
+      <h2>From cart to cash memo in under a minute</h2>
+      <ul class="check-list">
+        <li>Add items with quantity &amp; unit price — totals update instantly</li>
+        <li>Apply percentage or fixed discounts and tax</li>
+        <li>Pick the currency, category &amp; payment type (incl. Apple Pay)</li>
+        <li>Attach store location, notes and a signature</li>
+        <li>Auto-print or auto-share the finished memo</li>
+      </ul>
+      <a href="#download" class="btn btn-primary">Start selling smarter</a>
+    </div>
+    <div class="split-visual split-visual-shadow">
+      <img src="assets/ipad-receipt.png" alt="Cash Memer new receipt on iPad with live preview" />
+    </div>
+  </div>
+</section>
+
+<!-- ===== ALT FEATURE: RATES (reversed) ===== -->
+<section class="split split-alt">
+  <div class="split-inner reverse">
+    <div class="split-copy">
+      <span class="eyebrow">Live rates</span>
+      <h2>The market, in your pocket</h2>
+      <p class="split-lead">Price goods in any currency with confidence. Cash Memer pulls fresh rates so USD, EUR, GBP, SAR, PKR and 150+ more are always up to date.</p>
+      <div class="stat-row">
+        <div class="stat"><strong>150+</strong><span>currencies</span></div>
+        <div class="stat"><strong>Live</strong><span>rate API</span></div>
+        <div class="stat"><strong>1 USD</strong><span>base rate</span></div>
+      </div>
+    </div>
+    <div class="split-visual phones-pair">
+      <img src="assets/phone-rates.png" alt="Live currency rates" class="pp-front" />
+      <img src="assets/phone-home-urdu.png" alt="Home screen in Urdu with weather" class="pp-back" />
+    </div>
+  </div>
+</section>
+
+<!-- ===== SHOWCASE GALLERY ===== -->
+<section class="showcase" id="showcase">
+  <div class="section-head">
+    <span class="eyebrow">See it in action</span>
+    <h2>Beautiful on iPhone &amp; iPad</h2>
+    <p>A few of the polished, native screens. More: <a href="mobile.html">iPhone &amp; Android</a> · <a href="wearables.html">Watch &amp; Mac</a> · <a href="spatial.html">Vision &amp; XR</a> · <a href="languages.html">Languages</a>.</p>
+  </div>
+  <div class="gallery">
+    <figure><img src="assets/phone-scanner.png" alt="Scanner screen" /><figcaption>Barcode &amp; product scanner</figcaption></figure>
+    <figure><img src="assets/phone-rates.png" alt="Rates screen" /><figcaption>Live currency rates</figcaption></figure>
+    <figure class="wide"><img src="assets/ipad-settings.png" alt="iPad settings" /><figcaption>iPad — cloud sync &amp; backup</figcaption></figure>
+  </div>
+</section>
+
+<!-- ===== NOW ON ANDROID ===== -->
+<section class="sec sec-black">
+  <div class="sec-inner">
+    <div class="section-head">
+      <span class="eyebrow">Out now</span>
+      <h2>Live on Android today</h2>
+      <p>The full Cash Memer counter is available on Google Play right now — AI receipt scanning, live rates, history, signatures and cloud backup.</p>
+    </div>
+    <div class="app-shots">
+      <figure><img src="assets/android-receipts.png" alt="Cash Memer receipts &amp; AI scanner on Android" /><figcaption>AI receipt scanner</figcaption></figure>
+      <figure><img src="assets/android-rates.png" alt="Live exchange rates on Android" /><figcaption>Live currency rates</figcaption></figure>
+      <figure><img src="assets/android-history.png" alt="Receipt history on Android" /><figcaption>Searchable history</figcaption></figure>
+      <figure><img src="assets/android-scanner.png" alt="Barcode &amp; NFC scanner on Android" /><figcaption>Barcode &amp; NFC scan</figcaption></figure>
+    </div>
+    <div class="hero-actions center" style="margin-top:36px;flex-wrap:wrap">
+      <a href="https://ai.studio/apps/20cc2282-7b63-42e4-bc61-fbcfc7b45e8c?fullscreenApplet=true" target="_blank" rel="noopener" class="store-btn">
+        <svg viewBox="0 0 485 512" width="24" height="24" aria-hidden="true"><path fill="#00c3ff" d="M40 30 280 256 40 482Z"/><path fill="#00e676" d="M40 30 366 191 280 256Z"/><path fill="#ffce00" d="M280 256 366 191 445 256 366 321Z"/><path fill="#ff3d47" d="M40 482 366 321 280 256Z"/></svg>
+        <span><small>Get it on</small><strong>Google Play / Android</strong></span>
+      </a>
+      <a href="mobile.html" class="btn btn-sm" style="background:rgba(255,255,255,.12);color:#fff">Explore the iPhone &amp; Android app →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== REAL MEMO SHOWCASE ===== -->
+<section class="memo-sec" id="memo" aria-label="A real Cash Memo">
+  <div class="memo-inner">
+    <div class="memo-copy">
+      <span class="eyebrow">The output</span>
+      <h2>One tap. A memo worth keeping.</h2>
+      <p class="memo-lead">This is a real cash memo made in Cash Memer — nothing mocked up. The maths is done, the place is stamped, and every copy carries a scannable QR record. Tap it to take a closer look.</p>
+      <ul class="memo-feats">
+        <li class="memo-feat"><span class="mf-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v6c0 1.7 3.1 3 7 3s7-1.3 7-3V6"/><path d="M5 12v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6"/></svg></span><div><h4>Change, done for you</h4><p>Enter the cash given and the change is worked out instantly — $500 in, $296 back.</p></div></li>
+        <li class="memo-feat"><span class="mf-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19 5L5 19"/><circle cx="7.5" cy="7.5" r="2.5"/><circle cx="16.5" cy="16.5" r="2.5"/></svg></span><div><h4>Tax &amp; totals that add up</h4><p>Subtotal, a tax rate you set, and a grand total — recalculated on every edit.</p></div></li>
+        <li class="memo-feat"><span class="mf-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6h12M8 12h12M8 18h12"/><path d="M3.5 6h.01M3.5 12h.01M3.5 18h.01"/></svg></span><div><h4>Per-item pricing</h4><p>Quantity times unit price on every line — 12 eggs at $16.67 each.</p></div></li>
+        <li class="memo-feat"><span class="mf-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span><div><h4>Stamped with a place</h4><p>Each memo saves the address and exact GPS where the sale happened.</p></div></li>
+        <li class="memo-feat"><span class="mf-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3M21 21v.01M17 21h.01M21 17v.01"/></svg></span><div><h4>Scannable QR record</h4><p>A QR code on every receipt links to the full digital details.</p></div></li>
+        <li class="memo-feat"><span class="mf-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9l1-4h14l1 4M4 9v10a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V9M4 9h16M9 20v-6h6v6"/></svg></span><div><h4>Your shop, your details</h4><p>Store name, customer, category and payment method — all on the memo.</p></div></li>
+      </ul>
+      <div class="hero-actions"><a href="download.html" class="btn btn-primary">Make your own memo →</a></div>
+    </div>
+    <div class="memo-visual">
+      <figure class="memo-paper">
+        <img src="assets/memo-sample.png" alt="A Cash Memer cash memo for a grocery purchase at Walmart — items with quantity and unit price, subtotal, 2% tax, grand total, cash given, change amount, saved location with GPS coordinates, and a scannable QR code." loading="lazy" decoding="async" />
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PLATFORMS ===== -->
+<section class="platforms" id="platforms">
+  <div class="section-head">
+    <span class="eyebrow">Built native, everywhere</span>
+    <h2>Native on every screen you own</h2>
+    <p>Cash Memer is never a web wrapper. Every edition is a custom, hand-optimized native app that feels right at home on its platform — and they all sync through one account.</p>
+  </div>
+  <div class="platform-grid">
+    <div class="platform-card">
+      <div class="platform-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="6" y="2" width="12" height="20" rx="3"/><line x1="10.5" y1="18" x2="13.5" y2="18"/>
+        </svg>
+      </div>
+      <h3>iPhone</h3>
+      <span class="platform-os">iOS</span>
+      <p>The full counter in your pocket — receipts, scanning, rates and backups.</p>
+      <span class="native-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-11"/></svg> Native</span>
+    </div>
+    <div class="platform-card">
+      <div class="platform-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="6" y="2" width="12" height="20" rx="3"/><line x1="10.5" y1="18" x2="13.5" y2="18"/>
+        </svg>
+      </div>
+      <h3>Android</h3>
+      <span class="platform-os">Android</span>
+      <p>Live on Google Play today — the whole counter on any Android phone.</p>
+      <span class="native-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-11"/></svg> Native</span>
+    </div>
+    <div class="platform-card">
+      <div class="platform-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="3" y="3" width="18" height="18" rx="2.5"/><line x1="10.5" y1="18" x2="13.5" y2="18"/>
+        </svg>
+      </div>
+      <h3>iPad</h3>
+      <span class="platform-os">iPadOS</span>
+      <p>A roomy split view with a live receipt preview beside your items.</p>
+      <span class="native-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-11"/></svg> Native</span>
+    </div>
+    <div class="platform-card">
+      <div class="platform-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M10.5 16l-.4 4M13.5 16l.4 4"/>
+        </svg>
+      </div>
+      <h3>Mac</h3>
+      <span class="platform-os">macOS</span>
+      <p>Run your books full-screen with keyboard shortcuts and desktop printing.</p>
+      <span class="native-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-11"/></svg> Native</span>
+    </div>
+    <div class="platform-card">
+      <div class="platform-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="6" y="6" width="12" height="12" rx="3.5"/><path d="M8.5 6l.6-3.2A1.5 1.5 0 0 1 10.6 1.5h2.8a1.5 1.5 0 0 1 1.5 1.3L15.5 6M15.5 18l-.6 3.2a1.5 1.5 0 0 1-1.5 1.3h-2.8a1.5 1.5 0 0 1-1.5-1.3L8.5 18"/>
+        </svg>
+      </div>
+      <h3>Apple Watch</h3>
+      <span class="platform-os">watchOS</span>
+      <p>Glance at live rates, weather and sync status right on your wrist.</p>
+      <span class="native-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-11"/></svg> Native</span>
+    </div>
+    <div class="platform-card">
+      <div class="platform-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="6"/><path d="M9 6.4l.5-3.1A1.5 1.5 0 0 1 11 2h2a1.5 1.5 0 0 1 1.5 1.3l.5 3.1M9 17.6l.5 3.1A1.5 1.5 0 0 0 11 22h2a1.5 1.5 0 0 0 1.5-1.3l.5-3.1"/>
+        </svg>
+      </div>
+      <h3>Wear OS</h3>
+      <span class="platform-os">Android Watch</span>
+      <p>The same quick-glance companion, purpose-built for Wear OS watches.</p>
+      <span class="native-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-11"/></svg> Native</span>
+    </div>
+    <div class="platform-card is-soon">
+      <div class="platform-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M4 12a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v1.4c0 1.4-1.1 2.6-2.6 2.6-1 0-2-.6-2.4-1.6l-.4-.9a2 2 0 0 0-3.6 0l-.4.9c-.4 1-1.4 1.6-2.4 1.6C5.1 16 4 14.8 4 13.4z"/>
+        </svg>
+      </div>
+      <h3>Vision Pro</h3>
+      <span class="platform-os">visionOS</span>
+      <p>Spatial receipts and dashboards, floating right in your workspace.</p>
+      <span class="soon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.5V12l3 2"/></svg> Coming soon</span>
+    </div>
+    <div class="platform-card is-soon">
+      <div class="platform-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M2 11a3 3 0 0 1 3-3h14a3 3 0 0 1 3 3v3a3 3 0 0 1-3 3h-3.1a2 2 0 0 1-1.8-1.1l-.5-1a1.8 1.8 0 0 0-3.2 0l-.5 1A2 2 0 0 1 8.1 17H5a3 3 0 0 1-3-3z"/><path d="M8 8V6.5M16 8V6.5"/>
+        </svg>
+      </div>
+      <h3>Android XR</h3>
+      <span class="platform-os">Android XR</span>
+      <p>Immersive point-of-sale for the next wave of Android headsets.</p>
+      <span class="soon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.5V12l3 2"/></svg> Coming soon</span>
+    </div>
+  </div>
+  <div class="hero-actions center" style="margin-top:28px">
+    <div class="pf-dropdown" id="pfDropdown">
+      <button type="button" class="btn btn-primary pf-dd-toggle" id="pfDdToggle" aria-expanded="false" aria-haspopup="true">
+        Explore every platform
+        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      <div class="pf-dd-menu" role="menu">
+        <a href="web-app.html" role="menuitem"><span class="pf-dd-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 9h18M8 21h8M12 18v3"/></svg></span><span>Web App<small>any browser — no install</small></span></a>
+        <a href="mobile.html" role="menuitem"><span class="pf-dd-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="3"/><line x1="10.5" y1="18" x2="13.5" y2="18"/></svg></span><span>iPhone &amp; Android<small>iOS · Android — live today</small></span></a>
+        <a href="wearables.html" role="menuitem"><span class="pf-dd-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="12" height="12" rx="3.5"/><path d="M8.5 6l.6-3.2A1.5 1.5 0 0 1 10.6 1.5h2.8a1.5 1.5 0 0 1 1.5 1.3L15.5 6M15.5 18l-.6 3.2a1.5 1.5 0 0 1-1.5 1.3h-2.8a1.5 1.5 0 0 1-1.5-1.3L8.5 18"/></svg></span><span>Watch &amp; Mac<small>watchOS · Wear OS · macOS</small></span></a>
+        <a href="spatial.html" role="menuitem"><span class="pf-dd-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v1.4c0 1.4-1.1 2.6-2.6 2.6-1 0-2-.6-2.4-1.6l-.4-.9a2 2 0 0 0-3.6 0l-.4.9c-.4 1-1.4 1.6-2.4 1.6C5.1 16 4 14.8 4 13.4z"/></svg></span><span>Vision &amp; XR<small>visionOS · Android XR — soon</small></span></a>
+        <a href="driving.html" role="menuitem"><span class="pf-dd-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 11l1.5-4.5A2 2 0 0 1 8.4 5h7.2a2 2 0 0 1 1.9 1.5L19 11M5 11h14v5a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1v-1H8v1a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1z"/><circle cx="8" cy="14" r="0.6" fill="currentColor"/><circle cx="16" cy="14" r="0.6" fill="currentColor"/></svg></span><span>In the Car<small>CarPlay · Android Auto — soon</small></span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== UPDATES CAROUSEL ===== -->
+<section class="updates-sec" id="updates" aria-label="Latest updates">
+  <div class="updates-head">
+    <div>
+      <span class="eyebrow">Updates</span>
+      <h2>What's new, day to day</h2>
+    </div>
+    <div class="updates-nav">
+      <button class="u-arrow u-play" id="uPlay" aria-label="Pause auto-scroll" aria-pressed="false"><svg class="ic-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg><svg class="ic-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>
+      <button class="u-arrow" id="uPrev" aria-label="Scroll updates left"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg></button>
+      <button class="u-arrow" id="uNext" aria-label="Scroll updates right"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>
+    </div>
+  </div>
+  <div class="updates-track" id="updatesTrack"><!--UPDATES--></div>
+</section>
+
+<!-- ===== LATEST NEWS ===== -->
+<section class="home-news" id="latest-news">
+  <div class="section-head">
+    <span class="eyebrow">Newsroom</span>
+    <h2>Latest news</h2>
+    <p>Product updates, new features and stories from behind the counter.</p>
+  </div>
+  <div class="home-news-grid"><!--LATEST_NEWS--></div>
+  <div class="hero-actions center" style="margin-top:34px">
+    <a href="news.html" class="btn btn-primary">View all news →</a>
+  </div>
+</section>
+
+<!-- ===== DOWNLOAD / CTA ===== -->
+<section class="cta" id="download">
+  <div class="cta-inner">
+    <img src="assets/logo.jpg" alt="Cash Memer" class="cta-logo" />
+    <h2>Ready to ditch the paper receipts?</h2>
+    <p>Download Cash Memer and give every customer a clean, professional memo — free to get started.</p>
+    <div class="hero-actions center">
+      <a href="https://ai.studio/apps/20cc2282-7b63-42e4-bc61-fbcfc7b45e8c?fullscreenApplet=true" target="_blank" rel="noopener" class="store-btn">
+        <svg viewBox="0 0 485 512" width="24" height="24" aria-hidden="true"><path fill="#00c3ff" d="M40 30 280 256 40 482Z"/><path fill="#00e676" d="M40 30 366 191 280 256Z"/><path fill="#ffce00" d="M280 256 366 191 445 256 366 321Z"/><path fill="#ff3d47" d="M40 482 366 321 280 256Z"/></svg>
+        <span><small>Get it on</small><strong>Google Play / Android</strong></span>
+      </a>
+      <a href="#top" class="store-btn store-btn-dark">
+        <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path fill="currentColor" d="M16.365 1.43c0 1.14-.42 2.2-1.12 2.98-.83.93-2.18 1.65-3.3 1.56-.14-1.1.42-2.28 1.06-3 .74-.83 2.05-1.46 3.36-1.54zM20.5 17.2c-.55 1.27-.82 1.83-1.53 2.95-1 1.57-2.4 3.53-4.14 3.54-1.55.02-1.95-1-4.05-.99-2.1.01-2.54 1.01-4.1.99-1.74-.02-3.07-1.78-4.06-3.35C-.24 16.05-.5 10.55 1.5 7.83 2.7 6.16 4.6 5.2 6.4 5.2c1.83 0 2.98 1 4.5 1 1.47 0 2.36-1 4.48-1 1.6 0 3.3.87 4.5 2.38-3.96 2.17-3.32 7.83.62 9.62z"/></svg>
+        <span><small>Coming soon to</small><strong>App Store</strong></span>
+      </a>
+    </div>
+    <p class="cta-note">Free download · No ads · Regular free updates · Optional Google sync</p>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="#top" class="brand">
+        <img src="assets/logo.jpg" alt="Cash Memer logo" class="brand-logo" />
+        <span class="brand-name">Cash Memer</span>
+      </a>
+      <p class="footer-tag">Smart receipts, live rates &amp; a pocket POS — كیش میمر.</p>
+    </div>
+    <div class="footer-cols">
+      <div class="footer-col">
+        <h4>Product</h4>
+        <a href="#features">Features</a>
+        <a href="#showcase">Screens</a>
+        <a href="#platforms">Platforms</a>
+        <a href="mobile.html">iPhone &amp; Android</a>
+        <a href="wearables.html">Watch &amp; Mac</a>
+        <a href="spatial.html">Vision &amp; XR</a>
+        <a href="driving.html">In the Car</a>
+        <a href="languages.html">Languages</a>
+        <a href="#download">Download</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="mailto:support@cashmemer.com" class="icon-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg> support@cashmemer.com</a>
+        <a href="https://twitter.com/cashmemerapp" target="_blank" rel="noopener" class="icon-link"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zM17.083 19.77h1.833L7.084 4.126H5.117z"/></svg> @cashmemerapp</a>
+        <a href="https://www.cashmemer.com.pk" class="icon-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.6 2.4 2.6 15.6 0 18M12 3c-2.6 2.4-2.6 15.6 0 18"/></svg> www.cashmemer.com.pk</a>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Cash Memer. All rights reserved.</span>
+    <span>Made with care for shopkeepers everywhere.</span>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

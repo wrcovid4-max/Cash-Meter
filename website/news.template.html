@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>News &amp; Updates — Cash Memer</title>
+<meta name="description" content="The latest from Cash Memer — app updates, new features, release notes, tutorials, security &amp; privacy notes and behind-the-scenes stories." />
+<meta name="theme-color" content="#0a5fe0" />
+<link rel="canonical" href="https://www.cashmemer.com.pk/news.html" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="News &amp; Updates — Cash Memer" />
+<meta property="og:description" content="App updates, new features, release notes, tutorials and more from the Cash Memer team." />
+<meta property="og:url" content="https://www.cashmemer.com.pk/news.html" />
+<meta property="og:image" content="assets/logo.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="News &amp; Updates — Cash Memer" />
+<meta name="twitter:description" content="App updates, new features, release notes, tutorials and more." />
+<link rel="alternate" type="application/rss+xml" title="Cash Memer News" href="rss.xml" />
+<link rel="icon" type="image/jpeg" href="assets/logo.jpg" />
+<link rel="apple-touch-icon" href="assets/logo.jpg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <img src="assets/logo.jpg" alt="Cash Memer logo" class="brand-logo" />
+      <span class="brand-name">Cash Memer</span>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html#features">Features</a>
+      <a href="index.html#showcase">Screens</a>
+      <a href="index.html#platforms">Platforms</a>
+      <a href="languages.html">Languages</a>
+      <a href="index.html#download">Download</a>
+    </nav>
+    <a href="index.html#download" class="btn btn-sm btn-primary nav-cta">Get the App</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+<!-- ===== HEADER ===== -->
+<header class="news-head">
+  <span class="eyebrow">Newsroom</span>
+  <h1>Cash Memer News</h1>
+  <p>Product updates, new features, release notes and stories from behind the counter.</p>
+</header>
+
+<!-- ===== STICKY TOOLBAR ===== -->
+<div class="news-toolbar" id="newsToolbar">
+  <div class="news-toolbar-inner">
+    <div class="news-search" role="search">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+      <input id="newsSearch" type="search" placeholder="Search articles…" aria-label="Search articles" autocomplete="off" />
+      <button class="clear" id="newsSearchClear" aria-label="Clear search">&times;</button>
+    </div>
+    <div class="news-controls">
+      <div class="news-cats" id="newsCats" role="tablist" aria-label="Filter by category"></div>
+      <span id="activeTag"></span>
+      <div class="news-sort">
+        <label for="newsSort">Sort</label>
+        <select id="newsSort" aria-label="Sort articles">
+          <option value="newest">Newest</option>
+          <option value="oldest">Oldest</option>
+          <option value="popular">Most popular</option>
+          <option value="updated">Recently updated</option>
+        </select>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== FEATURED ===== -->
+<section class="news-section" aria-label="Featured article" style="padding-top:22px">
+  <span class="news-newest-label" id="newsNewestLabel" hidden>Newest</span>
+  <div id="newsFeatured"></div>
+</section>
+
+<!-- ===== ARTICLE GRID ===== -->
+<section class="news-section" style="padding-top:8px" aria-label="Articles">
+  <div class="news-section-head">
+    <h2>Latest articles</h2>
+    <span class="count" id="newsCount" aria-live="polite"></span>
+  </div>
+  <div class="news-grid" id="newsGrid" role="feed" aria-busy="false"></div>
+
+  <!-- skeleton (removed once data renders) -->
+  <div class="news-grid" id="newsSkeleton" aria-hidden="true">
+    <div class="sk-card"><div class="skeleton sk-media"></div><div class="sk-line lg"></div><div class="sk-line"></div><div class="sk-line sh"></div></div>
+    <div class="sk-card"><div class="skeleton sk-media"></div><div class="sk-line lg"></div><div class="sk-line"></div><div class="sk-line sh"></div></div>
+    <div class="sk-card"><div class="skeleton sk-media"></div><div class="sk-line lg"></div><div class="sk-line"></div><div class="sk-line sh"></div></div>
+  </div>
+
+  <!-- empty / no-results state -->
+  <div class="news-state" id="newsEmpty" hidden>
+    <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M8 11h6"/></svg></span>
+    <h3>Nothing here yet</h3>
+    <p class="es-msg">No articles match your search. Try a different keyword or category.</p>
+    <button class="btn btn-primary" onclick="location.href='news.html'">Reset filters</button>
+  </div>
+
+  <div class="news-more" id="newsMore"></div>
+</section>
+
+<!-- ===== UPDATES CAROUSEL ===== -->
+<section class="updates-sec" id="updates" aria-label="Latest updates">
+  <div class="updates-head">
+    <div>
+      <span class="eyebrow">Updates</span>
+      <h2>What's new, day to day</h2>
+    </div>
+    <div class="updates-nav">
+      <button class="u-arrow u-play" id="uPlay" aria-label="Pause auto-scroll" aria-pressed="false"><svg class="ic-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg><svg class="ic-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>
+      <button class="u-arrow" id="uPrev" aria-label="Scroll updates left"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg></button>
+      <button class="u-arrow" id="uNext" aria-label="Scroll updates right"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>
+    </div>
+  </div>
+  <div class="updates-track" id="updatesTrack"><!--UPDATES--></div>
+</section>
+
+<!-- ===== NEWSLETTER ===== -->
+<section class="newsletter" aria-label="Newsletter">
+  <div class="newsletter-inner">
+    <h2>Never miss an update</h2>
+    <p>Get release notes and new features in your inbox. No spam — just the good stuff.</p>
+    <form id="newsletterForm" novalidate>
+      <input id="nlEmail" type="email" required placeholder="you@example.com" aria-label="Email address" />
+      <button class="btn" type="submit">Subscribe</button>
+    </form>
+    <p class="ok" id="nlOk" hidden>✓ You're on the list — welcome aboard!</p>
+  </div>
+</section>
+</main>
+
+<button class="to-top" id="toTop" aria-label="Back to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="index.html" class="brand">
+        <img src="assets/logo.jpg" alt="Cash Memer logo" class="brand-logo" />
+        <span class="brand-name">Cash Memer</span>
+      </a>
+      <p class="footer-tag">Smart receipts, live rates &amp; a pocket POS — كیش میمر.</p>
+    </div>
+    <div class="footer-cols">
+      <div class="footer-col">
+        <h4>Product</h4>
+        <a href="index.html#features">Features</a>
+        <a href="mobile.html">iPhone &amp; Android</a>
+        <a href="wearables.html">Watch &amp; Mac</a>
+        <a href="news.html">News</a>
+        <a href="languages.html">Languages</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="mailto:support@cashmemer.com" class="icon-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg> support@cashmemer.com</a>
+        <a href="https://twitter.com/cashmemerapp" target="_blank" rel="noopener" class="icon-link"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zM17.083 19.77h1.833L7.084 4.126H5.117z"/></svg> @cashmemerapp</a>
+        <a href="https://www.cashmemer.com.pk" class="icon-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.6 2.4 2.6 15.6 0 18M12 3c-2.6 2.4-2.6 15.6 0 18"/></svg> www.cashmemer.com.pk</a>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Cash Memer. All rights reserved.</span>
+    <span>Made with care for shopkeepers everywhere.</span>
+  </div>
+</footer>
+
+<!--NEWS_DATA-->
+<script src="news.js"></script>
+</body>
+</html>
