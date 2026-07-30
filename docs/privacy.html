@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy — Cash Memer</title>
+<meta name="description" content="How the Cash Memer app handles your receipts, account and location data.">
+<meta name="theme-color" content="#f6f7ef" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#07090a" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="styles.css">
+<script>
+  (function () {
+    try {
+      var t = localStorage.getItem("cm-theme") || "system";
+      var resolved = t === "system"
+        ? (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light")
+        : t;
+      document.documentElement.setAttribute("data-theme", resolved);
+      document.documentElement.setAttribute("data-theme-pref", t);
+    } catch (e) {}
+  })();
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav__inner">
+    <a class="brand" href="index.html">
+      <img class="brand__mark" src="icon.svg" width="38" height="38" alt="" aria-hidden="true">
+      <span class="brand__text">
+        <span class="brand__name">Cash Memer</span>
+        <span class="brand__sub">Professional Receipt Organizer</span>
+      </span>
+    </a>
+    <nav class="nav__links" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="index.html#features">Features</a>
+      <a href="index.html#support">Support</a>
+    </nav>
+    <div class="nav__tools">
+      <div class="seg seg--theme" role="group" aria-label="Theme">
+        <button type="button" data-theme-btn="system" title="System" aria-pressed="false">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v10H4zM8 19h8M12 15v4"/></svg>
+          <span class="vh">System</span>
+        </button>
+        <button type="button" data-theme-btn="light" title="Light" aria-pressed="false">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5L19 19M19 5l-1.5 1.5M6.5 17.5L5 19"/></svg>
+          <span class="vh">Light</span>
+        </button>
+        <button type="button" data-theme-btn="dark" title="Dark" aria-pressed="false">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></svg>
+          <span class="vh">Dark</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="legal">
+  <div class="wrap wrap--narrow">
+    <h1>Privacy Policy</h1>
+    <p class="updated">Last updated: <!-- TODO: set on publish -->[date]</p>
+
+    <div class="note">
+      <p>
+        <strong>Check before you publish.</strong> This policy is written from how the
+        app actually behaves, but a few details only you can fill in are marked in
+        <code>[brackets]</code> — the publishing entity, the storage region and the
+        retention window. Replace those, confirm every section still matches the
+        shipping build, and note that this isn't legal advice.
+      </p>
+    </div>
+
+    <p>
+      This policy explains what data the Cash Memer app collects, why, and what you
+      can do about it. It covers the iOS, iPadOS, macOS, watchOS, Android and Wear OS
+      versions. Cash Memer is published by [your name or company] (“we”, “us”).
+      Questions go to <a href="mailto:support@cashmemer.com">support@cashmemer.com</a>.
+    </p>
+
+    <h2>What we collect</h2>
+    <ul>
+      <li>
+        <strong>Account details.</strong> If you sign in with Google, we receive your
+        name, email address and Google account identifier. These identify your account
+        and let your data restore on another device.
+      </li>
+      <li>
+        <strong>Receipts and cash memos.</strong> Everything you enter or scan —
+        store name, items, quantities, prices, tax, discount, currency, category,
+        payment type, notes, customer name, phone and email, member records and your
+        digital signature.
+      </li>
+      <li>
+        <strong>Products and members.</strong> Your product catalogue, including
+        barcodes and categories, and the customers saved in your members directory.
+      </li>
+      <li>
+        <strong>Location.</strong> If you use the GPS button on a receipt, the app
+        reads your device location to fill in the store address. Location is used only
+        for that field, only when you ask for it.
+      </li>
+      <li>
+        <strong>Photos and camera.</strong> Receipt images you capture or import for
+        scanning, and barcode scans.
+      </li>
+      <li>
+        <strong>App settings.</strong> Language, theme, currencies, print preferences,
+        and whether app lock is enabled.
+      </li>
+      <li>
+        <strong>Diagnostics.</strong> [Name any crash reporting or analytics you use —
+        for example Firebase Crashlytics — and what it collects. If you collect none,
+        say so here instead.]
+      </li>
+    </ul>
+
+    <h2>What we don't collect</h2>
+    <ul>
+      <li>No card numbers or bank credentials. The app records which payment method you chose; it does not process payments.</li>
+      <li>No contacts, and no continuous or background location tracking.</li>
+      <li>We do not sell your data, and we do not share it with advertisers.</li>
+    </ul>
+
+    <h2>Receipt scanning (Gemini)</h2>
+    <p>
+      When you scan or import a receipt, the image is sent to Google's Gemini service,
+      which reads it and returns the parsed fields that populate the form. The image
+      and the text extracted from it are processed for that purpose. Google's handling
+      of that data is governed by its own terms and privacy policy. If you'd rather not
+      send an image off the device, enter the receipt manually — every field the
+      scanner fills can be typed in by hand.
+    </p>
+
+    <h2>Exchange rates and weather</h2>
+    <p>
+      Currency rates come from <strong>ExchangeRate-API</strong>, all valued against
+      1 US Dollar. Weather is fetched for your general area to show conditions on the
+      dashboard and watch. These requests carry only what's needed to answer them —
+      currency codes and an approximate location. They do not include your receipts,
+      your totals or your account details. Liability for incorrect rate information
+      lies with the rate provider.
+    </p>
+
+    <h2>Google Sign-In and cloud sync</h2>
+    <p>
+      Sign-in is handled by Google; we never see your Google password. If you enable
+      cloud sync, your receipts and drafts are stored in <strong>Firebase</strong> in
+      the [region] region, protected by your account credentials and encrypted in
+      transit with TLS. You can disconnect the app at any time from your Google account
+      permissions page, and sign out from within the app.
+    </p>
+
+    <h2>Where your data lives</h2>
+    <p>
+      Receipts are written to a local database on your device first, so the app works
+      offline. A copy goes to your cloud store only if you turn sync on. You can also
+      export your own backups at any time — Settings → Backup &amp; Recovery writes a
+      JSON file or the raw SQLite database to Drive or local storage, or copies your
+      records to the clipboard. Those exports are yours; we never receive them.
+    </p>
+
+    <h2>How long we keep it</h2>
+    <p>
+      Synced data is retained while your account is active. Deleting the app removes
+      everything held on that device, and “Delete All Receipts” in settings clears your
+      records. To delete synced account data, use the in-app option or email
+      <a href="mailto:support@cashmemer.com">support@cashmemer.com</a>; we action
+      deletion requests within [30] days.
+    </p>
+
+    <h2>Your rights</h2>
+    <p>
+      Depending on where you live, you may have the right to access, correct, export or
+      delete the data we hold about you, and to object to certain processing. Contact us
+      at <a href="mailto:support@cashmemer.com">support@cashmemer.com</a> and we'll
+      respond within [30] days.
+    </p>
+
+    <h2>Children</h2>
+    <p>
+      Cash Memer is a business tool and is not directed at children under 13. We do not
+      knowingly collect data from them.
+    </p>
+
+    <h2>Changes to this policy</h2>
+    <p>
+      If the way the app handles data changes, we'll update this page and revise the
+      date at the top. Material changes will also be announced in the news section of
+      the website and surfaced in the app.
+    </p>
+
+    <h2>Contact</h2>
+    <p>
+      [Your name or company]<br>
+      <a href="mailto:support@cashmemer.com">support@cashmemer.com</a><br>
+      <a href="https://cashmemer.com">cashmemer.com</a> · @cashmemerapp
+    </p>
+  </div>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot__base">
+    <p>All trademarks, logos and names remain the property of their respective owners.</p>
+    <p>© <span id="year">2026</span> Cash Memer. <a href="index.html">Back to the website</a></p>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>

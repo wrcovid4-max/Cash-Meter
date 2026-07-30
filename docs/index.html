@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cash Memer — Make cash memos fun</title>
+<meta name="description" content="Cash Memer is a professional receipt organizer for iOS, iPadOS, macOS, watchOS, Android and Wear OS. Scan receipts with Gemini AI OCR, track live exchange rates, sign and print two-page cash memos — in English and Urdu.">
+<meta name="theme-color" content="#f6f7ef" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#07090a" media="(prefers-color-scheme: dark)">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Cash Memer — Make cash memos fun">
+<meta property="og:description" content="Professional receipt organizer. AI OCR scanning, live exchange rates, digital signatures and cloud sync — on every device you own.">
+<meta property="og:image" content="screenshots/platforms-lockup.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icon.svg">
+<link rel="stylesheet" href="styles.css">
+
+<script>
+  // Applied before first paint so the page never flashes the wrong theme or direction.
+  (function () {
+    try {
+      var t = localStorage.getItem("cm-theme") || "system";
+      var resolved = t === "system"
+        ? (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light")
+        : t;
+      document.documentElement.setAttribute("data-theme", resolved);
+      document.documentElement.setAttribute("data-theme-pref", t);
+
+      var l = localStorage.getItem("cm-lang") || "en";
+      document.documentElement.setAttribute("lang", l === "ur" ? "ur" : "en");
+      document.documentElement.setAttribute("dir", l === "ur" ? "rtl" : "ltr");
+    } catch (e) {}
+  })();
+</script>
+</head>
+<body>
+
+<a class="skip" href="#main" data-i18n="skip">Skip to content</a>
+
+<header class="nav" id="top">
+  <div class="wrap nav__inner">
+    <a class="brand" href="#top" aria-label="Cash Memer">
+      <img class="brand__mark" src="icon.svg" width="38" height="38" alt="" aria-hidden="true">
+      <span class="brand__text">
+        <span class="brand__name">Cash Memer</span>
+        <span class="brand__sub" data-i18n="brandSub">Professional Receipt Organizer</span>
+      </span>
+    </a>
+
+    <nav class="nav__links" aria-label="Primary">
+      <a href="#features" data-i18n="navFeatures">Features</a>
+      <a href="#screens" data-i18n="navScreens">Screens</a>
+      <a href="#platforms" data-i18n="navPlatforms">Platforms</a>
+      <a href="#news" data-i18n="navNews">News</a>
+      <a href="#support" data-i18n="navSupport">Support</a>
+    </nav>
+
+    <div class="nav__tools">
+      <!-- Theme: System / Light / Dark, mirroring the app's Appearance setting. -->
+      <div class="seg seg--theme" role="group" aria-label="Theme">
+        <button type="button" data-theme-btn="system" title="System" aria-pressed="false">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v10H4zM8 19h8M12 15v4"/></svg>
+          <span class="vh" data-i18n="themeSystem">System</span>
+        </button>
+        <button type="button" data-theme-btn="light" title="Light" aria-pressed="false">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5L19 19M19 5l-1.5 1.5M6.5 17.5L5 19"/></svg>
+          <span class="vh" data-i18n="themeLight">Light</span>
+        </button>
+        <button type="button" data-theme-btn="dark" title="Dark" aria-pressed="false">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></svg>
+          <span class="vh" data-i18n="themeDark">Dark</span>
+        </button>
+      </div>
+
+      <!-- Language: ENG / اردو, mirroring the pill in the app header. -->
+      <div class="seg seg--lang" role="group" aria-label="Language">
+        <button type="button" data-lang-btn="en" aria-pressed="true">ENG</button>
+        <button type="button" data-lang-btn="ur" aria-pressed="false" lang="ur">اردو</button>
+      </div>
+
+      <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+
+  <div class="nav__mobile" id="mobile-menu" hidden>
+    <!-- Duplicated controls so theme and language stay reachable on small screens.
+         app.js binds every [data-theme-btn] / [data-lang-btn], so these just work. -->
+    <div class="nav__mobile-tools">
+      <div class="seg" role="group" aria-label="Theme">
+        <button type="button" data-theme-btn="system" aria-pressed="false" data-i18n="themeSystem">System</button>
+        <button type="button" data-theme-btn="light" aria-pressed="false" data-i18n="themeLight">Light</button>
+        <button type="button" data-theme-btn="dark" aria-pressed="false" data-i18n="themeDark">Dark</button>
+      </div>
+      <div class="seg" role="group" aria-label="Language">
+        <button type="button" data-lang-btn="en" aria-pressed="true">ENG</button>
+        <button type="button" data-lang-btn="ur" aria-pressed="false" lang="ur">اردو</button>
+      </div>
+    </div>
+
+    <a href="#features" data-i18n="navFeatures">Features</a>
+    <a href="#screens" data-i18n="navScreens">Screens</a>
+    <a href="#platforms" data-i18n="navPlatforms">Platforms</a>
+    <a href="#rates" data-i18n="navRates">Exchange rates</a>
+    <a href="#news" data-i18n="navNews">News</a>
+    <a href="#support" data-i18n="navSupport">Support</a>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ══════════════ hero ══════════════ -->
+  <section class="hero">
+    <div class="glow glow--a" aria-hidden="true"></div>
+    <div class="glow glow--b" aria-hidden="true"></div>
+
+    <div class="wrap hero__grid">
+      <div class="hero__copy">
+        <p class="eyebrow"><span class="dot"></span><span data-i18n="heroEyebrow">Version 1.0.0 · Six platforms · Two languages</span></p>
+
+        <h1><span data-i18n="heroTitleA">Make cash memos</span> <span class="grad" data-i18n="heroTitleB">fun.</span></h1>
+
+        <p class="lede" data-i18n="heroLede">
+          Cash Memer is a professional receipt organizer. Photograph a paper receipt and
+          let Gemini fill in the form, add products by barcode, sign on the glass, then
+          print or share a clean two-page cash memo — with live exchange rates,
+          in English or Urdu, on every device you own.
+        </p>
+
+        <div class="cta">
+          <a class="btn" href="#get" data-i18n="ctaGet">Get Cash Memer</a>
+          <a class="btn btn--ghost" href="#screens" data-i18n="ctaScreens">See every screen</a>
+        </div>
+
+        <ul class="trust">
+          <li><strong>Gemini</strong> <span data-i18n="trustOcr">AI receipt OCR</span></li>
+          <li><strong>160+</strong> <span data-i18n="trustCurrencies">live currencies</span></li>
+          <li><strong>ENG / اردو</strong> <span data-i18n="trustLang">full RTL</span></li>
+        </ul>
+      </div>
+
+      <div class="hero__art">
+        <img src="screenshots/platforms-lockup.jpg"
+             alt="Cash Memer running on iPhone and Apple Watch"
+             width="900" height="706" fetchpriority="high">
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ platform strip ══════════════ -->
+  <section class="strip" id="platforms">
+    <div class="wrap">
+      <p class="strip__label" data-i18n="stripLabel">Available where you are</p>
+      <ul class="strip__list">
+        <li>iOS</li>
+        <li>iPadOS</li>
+        <li>macOS</li>
+        <li>watchOS</li>
+        <li>Android</li>
+        <li>Wear OS</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ══════════════ features ══════════════ -->
+  <section class="section" id="features">
+    <div class="wrap">
+      <p class="eyebrow eyebrow--center"><span data-i18n="featEyebrow">What's inside</span></p>
+      <h2 class="section__title" data-i18n="featTitle">Everything a cash memo needs</h2>
+      <p class="section__sub" data-i18n="featSub">
+        From the moment you point the camera at a paper receipt to the moment the
+        printed memo lands in the customer's hand — it's all in one app.
+      </p>
+
+      <div class="grid">
+        <article class="card card--accent">
+          <div class="card__icon" aria-hidden="true">✨</div>
+          <h3 data-i18n="f1t">AI OCR scanner (Gemini)</h3>
+          <p data-i18n="f1b">Photograph any paper receipt or pick one from the gallery and Gemini parses it, auto-populating every form field. Bulk scan queues a whole stack of images and saves them in one go.</p>
+        </article>
+
+        <article class="card">
+          <div class="card__icon" aria-hidden="true">🏷️</div>
+          <h3 data-i18n="f2t">Barcode scanning</h3>
+          <p data-i18n="f2b">Scan a barcode with the camera, an external professional scanner, or NFC. Matched products drop straight onto the memo with quantity and price.</p>
+        </article>
+
+        <article class="card">
+          <div class="card__icon" aria-hidden="true">🧾</div>
+          <h3 data-i18n="f3t">The memo builder</h3>
+          <p data-i18n="f3b">Store name, GPS address, member, customer contact, currency, category and payment type — Cash, Card, Bank Transfer, Mobile Wallet, Apple Pay, Google Wallet, Google Pay, Klarna or PayPak. Items, tax, cash given and change are worked out for you.</p>
+        </article>
+
+        <article class="card">
+          <div class="card__icon" aria-hidden="true">✍️</div>
+          <h3 data-i18n="f4t">Digital signature</h3>
+          <p data-i18n="f4b">Sign the memo on the glass, or with Apple Pencil on iPad. Save a default signature so it's applied automatically on every receipt you generate.</p>
+        </article>
+
+        <article class="card">
+          <div class="card__icon" aria-hidden="true">📄</div>
+          <h3 data-i18n="f5t">Two-page PDF viewer</h3>
+          <p data-i18n="f5b">Pan, annotate with text, stamp a tick or a cross, undo and redo. Search, share, print, or turn on auto-print and mass print for page one, page two, or both.</p>
+        </article>
+
+        <article class="card card--accent">
+          <div class="card__icon" aria-hidden="true">💱</div>
+          <h3 data-i18n="f6t">Live exchange rates</h3>
+          <p data-i18n="f6b">Every currency valued against 1 USD, powered by ExchangeRate-API, with search, one-tap refresh and a visible last-updated stamp. Register your own custom currency if yours isn't listed.</p>
+        </article>
+
+        <article class="card">
+          <div class="card__icon" aria-hidden="true">📦</div>
+          <h3 data-i18n="f7t">Products &amp; members</h3>
+          <p data-i18n="f7b">A product catalogue with barcodes, categories and archive/duplicate actions, plus a members directory so a regular customer's details fill themselves in.</p>
+        </article>
+
+        <article class="card">
+          <div class="card__icon" aria-hidden="true">📊</div>
+          <h3 data-i18n="f8t">Dashboard &amp; AI insights</h3>
+          <p data-i18n="f8b">Sales today, income today, total products, scans today and API status at a glance — plus a Weekly AI Summary that reads your history back to you as business insights.</p>
+        </article>
+
+        <article class="card">
+          <div class="card__icon" aria-hidden="true">☁️</div>
+          <h3 data-i18n="f9t">Google Sign-In &amp; cloud sync</h3>
+          <p data-i18n="f9b">Sign in with Google and your receipts and drafts stay synced through Firebase. Switch devices, or restore everything after a reset, without losing a single memo.</p>
+        </article>
+
+        <article class="card">
+          <div class="card__icon" aria-hidden="true">💾</div>
+          <h3 data-i18n="f10t">Offline backup</h3>
+          <p data-i18n="f10b">Save a JSON backup to Drive or local storage, export the raw SQLite database, or copy records to the clipboard. Restore any of them instantly.</p>
+        </article>
+
+        <article class="card">
+          <div class="card__icon" aria-hidden="true">🔒</div>
+          <h3 data-i18n="f11t">App lock</h3>
+          <p data-i18n="f11b">Require a PIN, password, pattern, fingerprint or face unlock on launch and when returning from the background, with a Material 3 dialer and a 4-digit passcode fallback.</p>
+        </article>
+
+        <article class="card">
+          <div class="card__icon" aria-hidden="true">🌤️</div>
+          <h3 data-i18n="f12t">Weather &amp; glance</h3>
+          <p data-i18n="f12b">Local conditions, humidity, wind and rainfall sit at the top of the screen — and on the watch, so a glance at your wrist shows the weather, the rates and your history.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ screens ══════════════ -->
+  <section class="section section--alt" id="screens">
+    <div class="wrap">
+      <p class="eyebrow eyebrow--center"><span data-i18n="screensEyebrow">Every screen</span></p>
+      <h2 class="section__title" data-i18n="screensTitle">Have a look around</h2>
+      <p class="section__sub" data-i18n="screensSub">
+        Real screenshots from the shipping app — light and dark, English and Urdu.
+      </p>
+
+      <div class="tabs" role="tablist" aria-label="Screenshot platform">
+        <button role="tab" id="tab-android"  aria-controls="panel-android"  aria-selected="true"  data-tab="android">Android</button>
+        <button role="tab" id="tab-iphone"   aria-controls="panel-iphone"   aria-selected="false" data-tab="iphone">iPhone</button>
+        <button role="tab" id="tab-ipad"     aria-controls="panel-ipad"     aria-selected="false" data-tab="ipad">iPad</button>
+        <button role="tab" id="tab-watch"    aria-controls="panel-watch"    aria-selected="false" data-tab="watch">
+          <span data-i18n="tabWatch">Watch</span>
+        </button>
+      </div>
+
+      <p class="shots__hint" data-i18n="shotsHint">Scroll sideways for more →</p>
+
+      <div class="shots" id="panel-android" role="tabpanel" aria-labelledby="tab-android" tabindex="0">
+        <figure><img src="screenshots/01-receipts-ocr.jpg"    width="540" height="1158" alt="Receipts tab with cloud backup and the Gemini OCR receipt scanner"><figcaption data-i18n="s1">OCR scanner</figcaption></figure>
+        <figure><img loading="lazy" src="screenshots/02-scan.jpg"            width="540" height="1158" alt="Live camera scanning a receipt with a draft auto-saved"><figcaption data-i18n="s2">Live scan</figcaption></figure>
+        <figure><img loading="lazy" src="screenshots/03-receipt-details.jpg" width="540" height="1158" alt="Receipt details form with store name, GPS address and customer fields"><figcaption data-i18n="s3">Receipt details</figcaption></figure>
+        <figure><img loading="lazy" src="screenshots/04-payment-items.jpg"   width="540" height="1158" alt="Currency, category, payment type options and the purchased items form"><figcaption data-i18n="s4">Payment &amp; items</figcaption></figure>
+        <figure><img loading="lazy" src="screenshots/05-signature.jpg"       width="540" height="1158" alt="Captured digital signature with save-as-default and generate"><figcaption data-i18n="s5">Signature</figcaption></figure>
+        <figure><img loading="lazy" src="screenshots/android-pdf-viewer.jpg" width="520" height="1101" alt="Generated two-page cash memo in the PDF viewer with annotation tools"><figcaption data-i18n="s6">Cash memo PDF</figcaption></figure>
+        <figure><img loading="lazy" src="screenshots/06-history.jpg"         width="540" height="1158" alt="History tab with search, weekly AI summary and date filters"><figcaption data-i18n="s7">History &amp; AI summary</figcaption></figure>
+        <figure><img loading="lazy" src="screenshots/07-exchange-rates.jpg"  width="540" height="1158" alt="Exchange rates screen listing currencies against the US dollar"><figcaption data-i18n="s8">Exchange rates</figcaption></figure>
+        <figure><img loading="lazy" src="screenshots/08-products.jpg"        width="540" height="1158" alt="Products catalogue with barcodes, categories and archive filters"><figcaption data-i18n="s9">Products</figcaption></figure>
+        <figure><img loading="lazy" src="screenshots/10-members.jpg"         width="540" height="1158" alt="Members directory listing saved customers"><figcaption data-i18n="s10">Members</figcaption></figure>
+        <figure><img loading="lazy" src="screenshots/android-bulk-scan.jpg"  width="520" height="1096" alt="Bulk scanner in dark mode processing a queue of receipt images"><figcaption data-i18n="s11">Bulk scan (dark)</figcaption></figure>
+        <figure><img loading="lazy" src="screenshots/11-cloud-sync.jpg"      width="540" height="1158" alt="Cloud sync and backup settings with a connected Google account"><figcaption data-i18n="s12">Cloud sync</figcaption></figure>
+        <figure><img loading="lazy" src="screenshots/12-appearance.jpg"      width="540" height="1158" alt="Appearance settings with system, light and dark options"><figcaption data-i18n="s13">Appearance</figcaption></figure>
+        <figure><img loading="lazy" src="screenshots/13-print-applock.jpg"   width="540" height="1158" alt="Print settings, mass print option and the app lock toggle"><figcaption data-i18n="s14">Print &amp; app lock</figcaption></figure>
+        <figure><img loading="lazy" src="screenshots/android-app-lock.jpg"   width="520" height="1061" alt="Locked secure folder asking for a four digit passcode"><figcaption data-i18n="s15">Secure folder</figcaption></figure>
+        <figure><img loading="lazy" src="screenshots/android-backup-dark.jpg" width="520" height="1098" alt="Backup and recovery options in dark mode"><figcaption data-i18n="s16">Backup (dark)</figcaption></figure>
+      </div>
+
+      <div class="shots" id="panel-iphone" role="tabpanel" aria-labelledby="tab-iphone" tabindex="0" hidden>
+        <figure><img src="screenshots/ios-new-receipt.jpg"    width="520" height="1124" alt="New receipt screen on iPhone with weather and the AI receipt scanner"><figcaption data-i18n="i1">New receipt</figcaption></figure>
+        <figure><img loading="lazy" src="screenshots/ios-new-receipt-ur.jpg" width="520" height="1106" alt="The same new receipt screen on iPhone in Urdu, right to left"><figcaption data-i18n="i2">New receipt — اردو</figcaption></figure>
+        <figure><img loading="lazy" src="screenshots/ios-rates.jpg"          width="520" height="1127" alt="Exchange rates on iPhone, all values per one US dollar"><figcaption data-i18n="i3">Rates</figcaption></figure>
+        <figure><img loading="lazy" src="screenshots/ios-rates-ur.jpg"       width="520" height="1103" alt="Exchange rates on iPhone in Urdu"><figcaption data-i18n="i4">Rates — اردو</figcaption></figure>
+      </div>
+
+      <div class="shots shots--wide" id="panel-ipad" role="tabpanel" aria-labelledby="tab-ipad" tabindex="0" hidden>
+        <figure><img src="screenshots/ipad-receipt.jpg"  width="980" height="735" alt="iPad split view with the sidebar of glanceable metrics and a live receipt preview"><figcaption data-i18n="p1">Sidebar metrics &amp; live preview</figcaption></figure>
+        <figure><img loading="lazy" src="screenshots/ipad-settings.jpg" width="980" height="735" alt="iPad settings in Urdu with Google sign-in, backup and restore"><figcaption data-i18n="p2">Settings — اردو</figcaption></figure>
+      </div>
+
+      <div class="shots shots--square" id="panel-watch" role="tabpanel" aria-labelledby="tab-watch" tabindex="0" hidden>
+        <figure><img src="screenshots/watchos-history.jpg"    width="620" height="620" alt="Apple Watch showing history with current weather"><figcaption data-i18n="w1">Apple Watch — history</figcaption></figure>
+        <figure><img loading="lazy" src="screenshots/watchos-rates.jpg"      width="820" height="584" alt="iPhone beside an Apple Watch displaying exchange rates"><figcaption data-i18n="w2">Apple Watch — rates</figcaption></figure>
+        <figure><img loading="lazy" src="screenshots/wearos-rates.jpg"       width="620" height="620" alt="Wear OS watch showing exchange rates per one US dollar"><figcaption data-i18n="w3">Wear OS — rates</figcaption></figure>
+        <figure><img loading="lazy" src="screenshots/wearos-history.jpg"     width="620" height="620" alt="Wear OS watch showing history and weather"><figcaption data-i18n="w4">Wear OS — history</figcaption></figure>
+        <figure><img loading="lazy" src="screenshots/wearos-records-ur.jpg"  width="620" height="620" alt="Wear OS records screen in Urdu"><figcaption data-i18n="w5">Wear OS — ریکارڈز</figcaption></figure>
+        <figure><img loading="lazy" src="screenshots/wearos-settings-ur.jpg" width="620" height="620" alt="Wear OS settings in Urdu with the language toggle"><figcaption data-i18n="w6">Wear OS — ترتیبات</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ rates ══════════════ -->
+  <section class="section" id="rates">
+    <div class="wrap rates__grid">
+      <div>
+        <p class="eyebrow"><span class="dot"></span><span data-i18n="ratesEyebrow">Exchange rates</span></p>
+        <h2 class="section__title section__title--start" data-i18n="ratesTitle">Every currency, against one dollar</h2>
+        <p class="section__sub section__sub--start" data-i18n="ratesSub">
+          Cash Memer keeps an up-to-date rate table on the device, valued against
+          1 USD and sourced from ExchangeRate-API. Search it, refresh it, read it in
+          Urdu, or check it from your wrist — and register a custom currency if the
+          one you trade in isn't on the list.
+        </p>
+        <ul class="ticks">
+          <li data-i18n="ratesL1">All currencies valued against 1 US Dollar</li>
+          <li data-i18n="ratesL2">One-tap refresh with a visible last-updated time</li>
+          <li data-i18n="ratesL3">Available in both English and Urdu</li>
+          <li data-i18n="ratesL4">Register your own custom currency, code and symbol</li>
+          <li data-i18n="ratesL5">Mirrored on Apple Watch and Wear OS</li>
+        </ul>
+      </div>
+
+      <div class="conv" role="region" aria-label="Currency converter demo">
+        <div class="conv__head">
+          <span data-i18n="convTitle">Converter</span>
+          <span class="pill"><i></i><span data-i18n="convSample">Sample rates</span></span>
+        </div>
+
+        <label class="conv__field">
+          <span data-i18n="convAmount">Amount</span>
+          <input id="conv-amount" type="number" inputmode="decimal" value="550" min="0" step="0.01">
+        </label>
+
+        <div class="conv__pair">
+          <label>
+            <span data-i18n="convFrom">From</span>
+            <select id="conv-from"></select>
+          </label>
+          <button class="conv__swap" id="conv-swap" type="button" aria-label="Swap currencies">⇄</button>
+          <label>
+            <span data-i18n="convTo">To</span>
+            <select id="conv-to"></select>
+          </label>
+        </div>
+
+        <output class="conv__out" id="conv-out"><b>1.98</b> <span>USD</span></output>
+        <p class="conv__note" id="conv-note">1 PKR = 0.0036 USD</p>
+        <p class="conv__fine" data-i18n="convFine">Illustrative figures for this page. The app uses live ExchangeRate-API data.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ language ══════════════ -->
+  <section class="section section--alt" id="language">
+    <div class="wrap lang__grid">
+      <div class="lang__art">
+        <img loading="lazy" src="screenshots/ios-new-receipt-ur.jpg" width="520" height="1106"
+             alt="Cash Memer on iPhone in Urdu, laid out right to left">
+      </div>
+      <div>
+        <p class="eyebrow"><span class="dot"></span><span data-i18n="langEyebrow">Language</span></p>
+        <h2 class="section__title section__title--start" data-i18n="langTitle">English and اردو, everywhere</h2>
+        <p class="section__sub section__sub--start" data-i18n="langSub">
+          Cash Memer isn't translated halfway. Flip the ENG / اردو switch in the header
+          and the whole app turns over — forms, rates, history, settings, the printed
+          memo, even the watch face — with a proper right-to-left layout.
+        </p>
+        <ul class="ticks">
+          <li data-i18n="langL1">Full Urdu interface with right-to-left layout</li>
+          <li data-i18n="langL2">Switch language at any time, no restart needed</li>
+          <li data-i18n="langL3">Carried across to Apple Watch and Wear OS</li>
+          <li data-i18n="langL4">Cash memos print correctly in either language</li>
+        </ul>
+        <p class="lang__hint" data-i18n="langHint">
+          This site speaks both too — try the ENG / اردو switch at the top of the page.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ security ══════════════ -->
+  <section class="section" id="security">
+    <div class="wrap">
+      <p class="eyebrow eyebrow--center"><span data-i18n="secEyebrow">Your books, your business</span></p>
+      <h2 class="section__title" data-i18n="secTitle">Locked down and backed up</h2>
+      <p class="section__sub" data-i18n="secSub">
+        Receipts are records. Cash Memer treats them that way.
+      </p>
+
+      <div class="grid grid--3">
+        <article class="card">
+          <div class="card__icon" aria-hidden="true">🛡️</div>
+          <h3 data-i18n="sec1t">App lock, cross-platform</h3>
+          <p data-i18n="sec1b">PIN, password, pattern, fingerprint or face unlock on startup and on return from the background, with a Material 3 dialer and a 4-digit passcode as a fallback.</p>
+        </article>
+        <article class="card">
+          <div class="card__icon" aria-hidden="true">🔑</div>
+          <h3 data-i18n="sec2t">Secure Google login</h3>
+          <p data-i18n="sec2b">Sign in with the Google account already on your device. Sync your data, restore it if it's lost, and move between devices seamlessly.</p>
+        </article>
+        <article class="card">
+          <div class="card__icon" aria-hidden="true">🗄️</div>
+          <h3 data-i18n="sec3t">Backups you control</h3>
+          <p data-i18n="sec3b">Cloud backup through Firebase, plus offline exports — JSON to Drive or local storage, the raw SQLite database, or a straight clipboard copy.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ news ══════════════ -->
+  <section class="section section--alt" id="news">
+    <div class="wrap wrap--narrow">
+      <p class="eyebrow"><span class="dot"></span><span data-i18n="newsEyebrow">News</span></p>
+      <h2 class="section__title section__title--start" data-i18n="newsTitle">What's new</h2>
+
+      <!-- Add a new <li class="news__item"> at the top of this list for each release. -->
+      <ol class="news">
+        <li class="news__item">
+          <div class="news__meta">
+            <span class="tag tag--now" data-i18n="newsTagCurrent">Current release</span>
+            <span class="news__ver">Version 1.0.0</span>
+          </div>
+          <h3 data-i18n="news1t">Cash Memer 1.0.0</h3>
+          <p data-i18n="news1b">
+            The first public release. Gemini-powered receipt OCR, barcode and bulk
+            scanning, the two-page cash memo generator with digital signatures,
+            live ExchangeRate-API rates, a product catalogue and members directory,
+            Google Sign-In with Firebase sync, offline backups, app lock, and a full
+            English / Urdu interface — on iOS, iPadOS, macOS, watchOS, Android and Wear OS.
+          </p>
+        </li>
+
+        <li class="news__item">
+          <div class="news__meta">
+            <span class="tag" data-i18n="newsTagDev">In development</span>
+          </div>
+          <h3 data-i18n="news2t">Bigger screens, and screens you wear differently</h3>
+          <p data-i18n="news2b">
+            visionOS and Android XR builds are running in testing, along with CarPlay and
+            Android Auto for checking today's sales, rates and recent memos on the road.
+            See the roadmap below.
+          </p>
+        </li>
+
+        <li class="news__item">
+          <div class="news__meta">
+            <span class="tag" data-i18n="newsTagNote">Note</span>
+          </div>
+          <h3 data-i18n="news3t">Keep your backups</h3>
+          <p data-i18n="news3b">
+            Cloud sync is convenient, but it isn't a substitute for a backup you hold
+            yourself. Settings → Backup &amp; Recovery will write a JSON file or a raw
+            SQLite database to Drive or local storage in a couple of taps. It takes a
+            moment, and it saves a very bad afternoon.
+          </p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ══════════════ coming soon ══════════════ -->
+  <section class="section" id="soon">
+    <div class="wrap">
+      <p class="eyebrow eyebrow--center"><span data-i18n="soonEyebrow">Roadmap</span></p>
+      <h2 class="section__title" data-i18n="soonTitle">Coming soon</h2>
+      <p class="section__sub" data-i18n="soonSub">
+        Four more places Cash Memer is headed. All four are already running in
+        internal builds; release dates aren't fixed yet, and the news section above
+        is where they'll be announced.
+      </p>
+
+      <div class="soon">
+        <article class="soon__card">
+          <span class="tag tag--soon" data-i18n="tagSoon">Coming soon</span>
+          <h3>visionOS</h3>
+          <p data-i18n="soon1">Spatial receipts. The full sidebar, scanner and live memo preview float in front of you at whatever size you like — already running in testing.</p>
+        </article>
+        <article class="soon__card">
+          <span class="tag tag--soon" data-i18n="tagSoon">Coming soon</span>
+          <h3>Android XR</h3>
+          <p data-i18n="soon2">The same spatial workspace on Android XR headsets, with the quick-overview rates panel and live preview side by side.</p>
+        </article>
+        <article class="soon__card">
+          <span class="tag tag--soon" data-i18n="tagSoon">Coming soon</span>
+          <h3>CarPlay</h3>
+          <p data-i18n="soon3">Dashboard, History and Rates on the car screen — today's sales, the weather, and your recent memos, sized for a glance at a red light.</p>
+        </article>
+        <article class="soon__card">
+          <span class="tag tag--soon" data-i18n="tagSoon">Coming soon</span>
+          <h3>Android Auto</h3>
+          <p data-i18n="soon4">Today's sales up top, weather beneath it, and one tap each to History, Rates and Settings — built to Android Auto's driving templates.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ get ══════════════ -->
+  <section class="section section--alt" id="get">
+    <div class="wrap get">
+      <img class="get__icons" loading="lazy" src="screenshots/app-icons.jpg" width="900" height="372"
+           alt="Cash Memer app icons for Apple, Android and watch platforms">
+      <h2 class="section__title" data-i18n="getTitle">Get Cash Memer</h2>
+      <p class="section__sub" data-i18n="getSub">
+        One app, six platforms, both languages. All features are available regardless
+        of platform — though some may not be available in every region or language.
+      </p>
+      <div class="cta cta--center">
+        <a class="btn" href="#support" data-i18n="getBtn1">Ask about availability</a>
+        <a class="btn btn--ghost" href="https://github.com/wrcovid4-max/Cash-Meter" data-i18n="getBtn2">View the project</a>
+      </div>
+      <!-- Replace the buttons above with your App Store / Google Play links once the listings are live. -->
+      <p class="get__note" data-i18n="getNote">Store links will be posted here and in the news section as each platform goes live.</p>
+    </div>
+  </section>
+
+  <!-- ══════════════ support ══════════════ -->
+  <section class="section" id="support">
+    <div class="wrap">
+      <p class="eyebrow eyebrow--center"><span data-i18n="supEyebrow">Support</span></p>
+      <h2 class="section__title" data-i18n="supTitle">We're always happy to help</h2>
+      <p class="section__sub" data-i18n="supSub">
+        Questions, bug reports, feature requests — we read all of them, in English or Urdu.
+      </p>
+
+      <div class="grid grid--3 sup">
+        <a class="card card--link" href="mailto:support@cashmemer.com">
+          <div class="card__icon" aria-hidden="true">✉️</div>
+          <h3 data-i18n="sup1t">Email us</h3>
+          <p class="card__value">support@cashmemer.com</p>
+          <p data-i18n="sup1b">The fastest way to reach us. Include your platform and app version if you're reporting a problem.</p>
+        </a>
+        <a class="card card--link" href="https://cashmemer.com">
+          <div class="card__icon" aria-hidden="true">🌐</div>
+          <h3 data-i18n="sup2t">Website</h3>
+          <p class="card__value">cashmemer.com</p>
+          <p data-i18n="sup2b">Release notes, guides and everything else about the app.</p>
+        </a>
+        <div class="card">
+          <div class="card__icon" aria-hidden="true">💬</div>
+          <h3 data-i18n="sup3t">Social</h3>
+          <p class="card__value">@cashmemerapp</p>
+          <p data-i18n="sup3b">Announcements and smaller updates between releases.</p>
+        </div>
+      </div>
+
+      <div class="faq">
+        <h3 class="faq__title" data-i18n="faqTitle">Common questions</h3>
+
+        <details>
+          <summary data-i18n="q1">Which platforms is Cash Memer on?</summary>
+          <p data-i18n="a1">iOS, iPadOS, macOS, watchOS, Android and Wear OS today. visionOS, Android XR, CarPlay and Android Auto are in development. All features are available regardless of platform, though some may not be available in every region or language.</p>
+        </details>
+
+        <details>
+          <summary data-i18n="q2">How does the receipt scanner work?</summary>
+          <p data-i18n="a2">Take a picture of a paper receipt, or pick one from your gallery, and Gemini parses it and auto-populates the form fields for you. Bulk scan handles a queue of images in one pass, and you can scan a barcode with the camera, an external scanner or NFC instead.</p>
+        </details>
+
+        <details>
+          <summary data-i18n="q3">Where do the exchange rates come from?</summary>
+          <p data-i18n="a3">From ExchangeRate-API, with all currencies valued against 1 US Dollar. Rates are shown with the time they were last updated. Liability for any incorrect rate information lies with the rate provider.</p>
+        </details>
+
+        <details>
+          <summary data-i18n="q4">What if I lose my phone or reset it?</summary>
+          <p data-i18n="a4">If you're signed in with Google, your receipts and drafts restore from Firebase on the new device. We'd also recommend keeping an offline backup — Settings → Backup &amp; Recovery exports a JSON file or the raw SQLite database to Drive or local storage.</p>
+        </details>
+
+        <details>
+          <summary data-i18n="q5">Can I use it in Urdu?</summary>
+          <p data-i18n="a5">Yes — the entire app, including the printed cash memo and the watch apps, runs in Urdu with a right-to-left layout. Switch with the ENG / اردو control in the app header at any time.</p>
+        </details>
+
+        <details>
+          <summary data-i18n="q6">Does it have dark mode?</summary>
+          <p data-i18n="a6">System-wide dark mode, light mode and an English-to-Urdu option are all available, set under Appearance in settings. This website follows the same three choices.</p>
+        </details>
+
+        <details>
+          <summary data-i18n="q7">Is my data private?</summary>
+          <p data-i18n="a7">Your receipts live on your device, and in your own Google-backed cloud store if you enable sync. See the <a href="privacy.html">privacy policy</a> for the details.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap foot__inner">
+    <div class="foot__brand">
+      <a class="brand" href="#top">
+        <img class="brand__mark" src="icon.svg" width="38" height="38" alt="" aria-hidden="true">
+        <span class="brand__text">
+          <span class="brand__name">Cash Memer</span>
+          <span class="brand__sub" data-i18n="brandSub">Professional Receipt Organizer</span>
+        </span>
+      </a>
+      <p class="foot__tag" data-i18n="footTag">Make cash memos fun.</p>
+    </div>
+
+    <nav class="foot__links" aria-label="Footer">
+      <a href="#features" data-i18n="navFeatures">Features</a>
+      <a href="#screens" data-i18n="navScreens">Screens</a>
+      <a href="#rates" data-i18n="navRates">Exchange rates</a>
+      <a href="#news" data-i18n="navNews">News</a>
+      <a href="#support" data-i18n="navSupport">Support</a>
+      <a href="privacy.html" data-i18n="navPrivacy">Privacy</a>
+    </nav>
+  </div>
+
+  <div class="wrap foot__base">
+    <p data-i18n="footLegal1">
+      Some features may not be available in all regions or all languages. Update to the
+      latest software for the best experience.
+    </p>
+    <p data-i18n="footLegal2">
+      Exchange rates are provided by ExchangeRate-API; liability for any incorrect
+      information lies with them. All trademarks, logos and names remain the property
+      of their respective owners.
+    </p>
+    <p>© <span id="year">2026</span> Cash Memer.</p>
+  </div>
+</footer>
+
+<script src="i18n.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
