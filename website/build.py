@@ -894,7 +894,13 @@ SUPPORT_EXTRA = (
     + '\n  </div>'
 )
 
+import os.path as _osp
+_skipped_pages = []
 for src, out in PAGES:
+    if not _osp.exists(src):          # template lost — keep the built page as-is
+        _skipped_pages.append((src, out))
+        print(f"  ! template missing, keeping existing {out}: {src}")
+        continue
     html = open(src, encoding="utf-8").read()
     if out == "support.html":
         html = html.replace("<!--FAQ_EXTRA-->", SUPPORT_EXTRA)
@@ -952,7 +958,13 @@ for f in os.listdir("dist"):
 deploy = ["index.html", "mobile.html", "wearables.html", "spatial.html", "driving.html",
           "languages.html", "news.html", "support.html", "download.html", "web-app.html", "terms.html", "privacy.html",
           "trademarks.html", "sitemap.xml", "rss.xml"] + [a["url"] for a in ART]
+_absent = []
 for f in deploy:
+    if not os.path.exists(f):
+        _absent.append(f)
+        continue
     shutil.copy(f, os.path.join("dist", f))
+if _absent:
+    print("  ! not in dist (file missing): " + ", ".join(_absent))
 open("dist/robots.txt", "w").write(f"User-agent: *\nAllow: /\nSitemap: {SITE}/sitemap.xml\n")
 print(f"dist/ ready for deploy — {len(deploy)} pages + robots.txt")

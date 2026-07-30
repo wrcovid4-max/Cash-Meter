@@ -6,78 +6,99 @@ Apple Watch, Android, Wear OS, and the web.
 *Make cash memos fun.*
 
 This repository is the backup of the **cashmemer.com.pk** website. The original
-copy was lost; what's here was restored from the recovered files.
-
-## Layout
-
-| Path | What it is |
-| --- | --- |
-| `website/` | The whole site — pages, templates, build script |
-| `Start Website Sharing.command` | Double-click on a Mac to serve `website/` and get a public link |
+copy was lost; what's here was restored from the recovered files, plus more that
+was reverse-engineered back out of the built pages.
 
 ## Running the site
 
-The built `.html` files are **completely self-contained** — CSS and JavaScript are
-inlined and every image is embedded as a data URI. No build step, no `assets/`
-folder, no internet connection needed. Open `website/index.html` in a browser and
-it works.
-
-To serve it properly:
-
 ```sh
-python3 -m http.server 8901 --directory website
-# then open http://localhost:8901
+./serve.sh
 ```
 
-Or double-click **Start Website Sharing.command**. It serves `website/` on port
-8901 and, if `cloudflared` is installed, prints a public `trycloudflare.com` link
-you can share with anyone.
+That prints two links:
 
-## What's here
+- `http://localhost:8901` — this machine
+- `http://<your-ip>:8901` — open this one on a phone or tablet on the same Wi-Fi
 
-**Pages that load and work:**
+Pass a different port with `./serve.sh 9000`. Stop with Ctrl+C.
 
-`index.html` · `wearables.html` · `driving.html` · `languages.html` ·
-`news.html` · `support.html` · `download.html` · `web-app.html` ·
-`privacy.html` · `trademarks.html` ·
-`news-cash-memer-launches-on-the-web.html` ·
-`news-cash-memer-trademark-portfolio.html`
+On a Mac you can also **double-click `Start Website Sharing.command`**. It does
+the same thing, and if `cloudflared` is installed (`brew install cloudflared`) it
+also prints a public `trycloudflare.com` link that works from any network.
+
+The built `.html` files are **completely self-contained** — CSS and JavaScript
+inlined, every image embedded as a data URI. You can open `website/index.html`
+straight off disk with no server at all.
+
+## Pages
+
+All of these load and work:
+
+| | |
+| --- | --- |
+| `index.html` | Home |
+| `mobile.html` | iPhone & Android |
+| `wearables.html` | Apple Watch, Wear OS, Mac |
+| `driving.html` | CarPlay & Android Auto |
+| `languages.html` | English & اردو |
+| `news.html` | News index |
+| `support.html` | Support & FAQs |
+| `download.html` | Download |
+| `web-app.html` | Web app |
+| `privacy.html` | Privacy policy |
+| `trademarks.html` | Trademarks |
+| 3 × `news-*.html` | The news articles |
 
 Plus `sitemap.xml` and `rss.xml`.
 
-**Build system:** `build.py`, `styles.css`, `article.js`, `search.js`,
-`news.json`, `news.sample.json`, and the templates
-`index` · `mobile` · `languages` · `driving` · `privacy` · `trademarks` ·
-`web-app` · `news`.
+### Still missing
 
-## Still missing
+Two pages could not be recovered — no built copy and no template survived. The
+nav links to them 404:
 
-These were part of the site but weren't among the recovered files. The links to
-them in the navigation currently 404:
+- `spatial.html` — the visionOS / Android XR page
+- `terms.html` — terms of service
 
-| Missing | Notes |
-| --- | --- |
-| `mobile.html` | Template survived — only the built page is gone |
-| `spatial.html` | visionOS / Android XR page. Template gone too |
-| `terms.html` | Template gone too |
-| `news-cash-memer-launches-on-google-play.html` | Listed in `sitemap.xml` |
-| `assets/` | ~50 source images. Only needed to re-run `build.py` |
-| `script.js`, `news.js`, `support.js` | Inlined in the built pages; needed to re-run `build.py` |
-| `updates.json` | Needed to re-run `build.py` |
-
-If any of these turn up, drop them in `website/` and commit. The build script
-lists everything it expects at the top of `build.py`.
+Eleven images are also gone, because the only pages that referenced them were
+the ones that were lost. `build.py` substitutes a flat grey placeholder for each,
+so nothing crashes: `android-home.png` and `press-{banner,cloud,details,items,`
+`lock,products,rates,scanner,signature,urdu}.jpg`.
 
 ## Rebuilding
 
-`build.py` regenerates every page from the templates, inlining CSS/JS and
-embedding images. It needs the `assets/` folder and the missing scripts above, so
-it won't run until those are recovered — the built pages in this repo are the
-canonical copy for now.
+`build.py` regenerates every page from the templates, inlining the CSS and JS and
+embedding the images.
 
 ```sh
 cd website && python3 build.py
 ```
+
+It writes the pages in place and assembles a clean `dist/` folder you can drag
+onto any static host.
+
+Two changes were made to it during the restore: it now skips a page whose
+template is missing rather than crashing, and it leaves a missing file out of
+`dist/` instead of failing. Both print a warning so you can see what was skipped.
+
+**A caution.** Rebuilding re-encodes every image from `assets/`, and those assets
+were themselves recovered *from* the built pages — so they have already been
+through one compression pass. Rebuilding compresses them again and the pages get
+visibly smaller each time. The committed `.html` files are the best copy that
+exists. Only rebuild when you've actually changed a template, and check the
+result before committing.
+
+### How the recovery worked
+
+`recover.py` pulls assets back out of the built pages. build.py inlines each
+image as a data URI but leaves the `alt` text alone, so the template's asset name
+and the built page's data URI can be paired on alt. It recovered 27 of 38 images.
+
+The scripts came back the same way — `script.js`, `news.js` and `support.js` were
+lifted out of the inline `<script>` blocks, and `updates.json` was reconstructed
+from the markup of the homepage update cards.
+
+`recover.py` and `recover_js.py` are kept in the repo in case any of this is ever
+needed again. Neither overwrites an existing file.
 
 ## Back this up
 

@@ -1,0 +1,60 @@
+{
+  "updates": [
+    {
+      "tag": "New",
+      "time": "Just now",
+      "title": "Customer directory",
+      "note": "Save customer profiles — name, phone, email and address — and attach one to any memo in a single tap.",
+      "color": "#0a5fe0"
+    },
+    {
+      "tag": "New",
+      "time": "Recently",
+      "title": "Product catalog",
+      "note": "A searchable catalog with barcode, SKU, category, stock and pricing for every item you sell.",
+      "color": "#6a3fe0"
+    },
+    {
+      "tag": "Live rates",
+      "time": "1h ago",
+      "title": "Rates refreshed",
+      "note": "USD, PKR, EUR, GBP and 150+ currencies just updated from ExchangeRate-API.",
+      "color": "#1a8ed6"
+    },
+    {
+      "tag": "Status",
+      "time": "2h ago",
+      "title": "All systems operational",
+      "note": "Sync, AI scanning and the rate API are all running smoothly.",
+      "color": "#1a9e57"
+    },
+    {
+      "tag": "New",
+      "time": "Today",
+      "title": "Bulk AI scanning",
+      "note": "Import a whole folder of receipts and let Gemini parse them all at once.",
+      "color": "#0a5fe0"
+    },
+    {
+      "tag": "Tip",
+      "time": "Yesterday",
+      "title": "Save a default signature",
+      "note": "Sign once and every cash memo comes out pre-signed.",
+      "color": "#0a9fb8"
+    },
+    {
+      "tag": "Android",
+      "time": "2d ago",
+      "title": "Live on Google Play",
+      "note": "The full Cash Memer counter is available on Android today.",
+      "color": "#e07b1a"
+    },
+    {
+      "tag": "Fix",
+      "time": "3d ago",
+      "title": "Urdu signature card",
+      "note": "Fixed a right-to-left layout glitch on the signature screen.",
+      "color": "#c94b7a"
+    }
+  ]
+}
