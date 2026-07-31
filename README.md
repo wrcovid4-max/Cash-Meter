@@ -30,30 +30,18 @@ The built `.html` files are **completely self-contained** — CSS and JavaScript
 inlined, every image embedded as a data URI. You can open `website/index.html`
 straight off disk with no server at all.
 
-## Putting it online (a shareable link)
-
-`.github/workflows/pages.yml` publishes `website/` to GitHub Pages on every push
-to `main`. Two things have to be true first, and both are settings only the repo
-owner can change:
-
-1. **The repo must be eligible for Pages.** It's currently private, and Pages on
-   a private repo needs a paid GitHub plan. On the free plan, make the repo
-   public: *Settings → General → Danger Zone → Change visibility*.
-2. **Turn Pages on:** *Settings → Pages → Build and deployment → Source →
-   **GitHub Actions***.
-
-Then re-run the workflow (Actions tab → *Deploy website to GitHub Pages* → *Run
-workflow*), and the site is live at:
+## The live site
 
 ```
 https://wrcovid4-max.github.io/Cash-Meter/
 ```
 
-That URL is permanent and shareable. Every later `git push` redeploys it.
+`.github/workflows/pages.yml` republishes `website/` to GitHub Pages on every
+push to `main`, so the link stays current on its own — nothing to run by hand.
 
-The workflow already asks to enable Pages itself, but the Actions token isn't
-allowed to create a Pages site — it fails with *"Resource not accessible by
-integration"*. Step 2 is unavoidable.
+Pages needs the repo to be public (or a paid GitHub plan), and the Pages source
+set to *GitHub Actions* under Settings → Pages. Both are already done; this note
+is only here in case the repo is ever recreated from scratch.
 
 ## Pages
 
@@ -72,22 +60,31 @@ All of these load and work:
 | `web-app.html` | Web app |
 | `privacy.html` | Privacy policy |
 | `trademarks.html` | Trademarks |
+| `spatial.html` | Vision Pro & Android XR |
+| `terms.html` | Terms of service |
 | 3 × `news-*.html` | The news articles |
 
 Plus `sitemap.xml` and `rss.xml`.
 
 ### Still missing
 
-Two pages could not be recovered — no built copy and no template survived. The
-nav links to them 404:
+Two templates could not be recovered. Both pages work — their built HTML
+survived — but there is nothing to edit if you want to change them:
 
-- `spatial.html` — the visionOS / Android XR page
-- `terms.html` — terms of service
+- `wearables.template.html`
+- `support.template.html`
 
-Eleven images are also gone, because the only pages that referenced them were
-the ones that were lost. `build.py` substitutes a flat grey placeholder for each,
-so nothing crashes: `android-home.png` and `press-{banner,cloud,details,items,`
-`lock,products,rates,scanner,signature,urdu}.jpg`.
+Sixteen images are also still gone, so `build.py` substitutes a flat grey
+placeholder for each. They only affect the Google Play news article and a couple
+of spots on the mobile page:
+
+`android-{home,backup,settings,signature}.png` · `mac-app.png` ·
+`phone-settings.png` · `press-banner.jpg` ·
+`press-{scanner,items,details,signature,rates,products,cloud,lock,urdu}.jpg`
+
+If they turn up, drop them into `website/assets/` and re-run the build. The
+easiest route is GitHub's web uploader:
+<https://github.com/wrcovid4-max/Cash-Meter/upload/main/website/assets>
 
 ## Rebuilding
 
@@ -116,7 +113,7 @@ result before committing.
 
 `recover.py` pulls assets back out of the built pages. build.py inlines each
 image as a data URI but leaves the `alt` text alone, so the template's asset name
-and the built page's data URI can be paired on alt. It recovered 27 of 38 images.
+and the built page's data URI can be paired on alt. It recovered 27 images that way; later uploads brought the total to 36 of 48.
 
 The scripts came back the same way — `script.js`, `news.js` and `support.js` were
 lifted out of the inline `<script>` blocks, and `updates.json` was reconstructed
