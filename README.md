@@ -30,6 +30,31 @@ The built `.html` files are **completely self-contained** — CSS and JavaScript
 inlined, every image embedded as a data URI. You can open `website/index.html`
 straight off disk with no server at all.
 
+## Putting it online (a shareable link)
+
+`.github/workflows/pages.yml` publishes `website/` to GitHub Pages on every push
+to `main`. Two things have to be true first, and both are settings only the repo
+owner can change:
+
+1. **The repo must be eligible for Pages.** It's currently private, and Pages on
+   a private repo needs a paid GitHub plan. On the free plan, make the repo
+   public: *Settings → General → Danger Zone → Change visibility*.
+2. **Turn Pages on:** *Settings → Pages → Build and deployment → Source →
+   **GitHub Actions***.
+
+Then re-run the workflow (Actions tab → *Deploy website to GitHub Pages* → *Run
+workflow*), and the site is live at:
+
+```
+https://wrcovid4-max.github.io/Cash-Meter/
+```
+
+That URL is permanent and shareable. Every later `git push` redeploys it.
+
+The workflow already asks to enable Pages itself, but the Actions token isn't
+allowed to create a Pages site — it fails with *"Resource not accessible by
+integration"*. Step 2 is unavoidable.
+
 ## Pages
 
 All of these load and work:
