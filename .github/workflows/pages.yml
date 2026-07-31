@@ -28,7 +28,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # enablement turns Pages on via the API if it isn't already, so this
+      # works without visiting Settings — provided the repo is eligible
+      # (public, or private on a paid plan).
       - uses: actions/configure-pages@v5
+        with:
+          enablement: true
 
       - name: Upload the website folder
         uses: actions/upload-pages-artifact@v3
